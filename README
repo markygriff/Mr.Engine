@@ -1,4 +1,7 @@
 Mark Griffith.
 
 This is a very basic (for now) 2D game engine I have created using OpenGL and SDL2.
-A sample is provided --> NinjaPlatformer
+A sample game is provided --> NinjaPlatformer
+
+BUILD (OSX only) :
+Be sure to build MrEngine in both Debug and Release
