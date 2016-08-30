@@ -70,7 +70,7 @@ namespace MrEngine
             
             //SEMI FIXED TIME STEP
             int updateCount = 0;
-            while (totalDeltaTime > 0.0f && updateCount < MAX_PHYSICS_STEPS)
+            while (totalDeltaTime > 0.0f && updateCount < MAX_PHYSICS_STEPS && m_isRunning)
             {
                 //limit deltatime to 1.0 so no speedup (1.0 being one frame and .2 being a fifth of a frame)
                 float deltaTime = std::min(totalDeltaTime, MAX_DELTA_TIME);
@@ -78,11 +78,9 @@ namespace MrEngine
                 deltaTime = deltaTime / DESIRED_FPS;
                 
                 //std::cout <<"deltaTime: " << deltaTime << std::endl;
-                
                 update(deltaTime);
-                
+            
                 draw(deltaTime);
-                
 //                std::cout << deltaTime << std::endl;
 //                std::cout <<  " T: " << totalDeltaTime << std::endl;
                 totalDeltaTime -= deltaTime;

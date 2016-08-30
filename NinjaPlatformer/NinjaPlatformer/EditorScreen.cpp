@@ -82,13 +82,16 @@ void EditorScreen::onExit()
     m_world.reset();
     m_boxes.clear();
     m_lights.clear();
+    
+    //stop the world from updating 
+    m_alive = false;
 }
 
 void EditorScreen::update(float deltaTime)
 {
+    checkInput();
     m_menuGUI.update(m_game->inputManager, deltaTime);
     m_camera.update();
-    checkInput();
     
     //if the game is live, update world physics
     if (m_alive)
