@@ -72,6 +72,7 @@ namespace MrEngine {
         GLuint m_fontTexture = 0; ///< fonts are unique to each menu
         bool m_mousePressed[3] = { false, false, false }; ///< right,left,middle click UPDATE IN PROCESSin
         float m_mouseWheel = 0.0f;
+        int m_numFonts = 0;
         
         //static member variables, same for all GUI objects
         static MrEngine::Window* m_window; ///< static window for ALL created gui object (game window)

@@ -35,6 +35,8 @@ public:
     b2Body* getBody() const { return m_body; }
     b2Fixture* getFixture(int index) const { return m_fixtures[index]; }
     const glm::vec2& getDimensions() const {return m_dimensions; }
+    
+    bool testPoint(float x, float y) const { return m_fixtures[0]->TestPoint(b2Vec2(x, y)) || m_fixtures[1]->TestPoint(b2Vec2(x, y)) || m_fixtures[2]->TestPoint(b2Vec2(x, y)); }
 
 
 private:

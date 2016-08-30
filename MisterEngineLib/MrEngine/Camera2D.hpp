@@ -43,15 +43,16 @@ public:
     void setScale(const float newScale) { m_scale = newScale; m_needsMatrixUpdate = true; }
     
     //getters
-    glm::vec2 getPosition() { return m_position; }
-    float getScale() { return m_scale; }
-    glm::mat4 getCameraMatrix() { return m_cameraMatrix; }
+    glm::vec2 getPosition() const { return m_position; }
+    float getScale() const { return m_scale; }
+    glm::mat4 getCameraMatrix() const { return m_cameraMatrix; }
+    float getDimRatio() const { return  (float) m_screenWidth / (float) m_screenHeight; }
     
 private:
     int m_screenWidth = 500;
     int m_screenHeight = 500;
     bool m_needsMatrixUpdate = true;
-    float m_scale  =1.0f;
+    float m_scale = 1.0f;
     glm::vec2 m_position;
     glm::mat4 m_cameraMatrix; // 4x4 matrix
     glm::mat4 m_orthoMatrix;

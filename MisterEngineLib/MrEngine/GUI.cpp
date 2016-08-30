@@ -162,8 +162,9 @@ namespace MrEngine {
         io.MouseDown[2] = m_mousePressed[2] || (mouseMask & SDL_BUTTON(SDL_BUTTON_MIDDLE)) != 0;
         m_mousePressed[0] = m_mousePressed[1] = m_mousePressed[2] = false; //unnecessary
         
+        ///std::cout << io.MouseDown[0] << "  " << io.MouseDown[1] << "  " << io.MouseDown[2] << std::endl;
+        
         //update to new mouse wheel scroll and reset the mouse wheel value
-        m_mouseWheel = inputManager.mousewheel; //inputManager.update MUST come before game update
         io.MouseWheel = m_mouseWheel;
         m_mouseWheel = 0.0f;
         // Hide OS mouse cursor if ImGui is drawing it
@@ -175,13 +176,16 @@ namespace MrEngine {
     
     void GUI::processEvent(SDL_Event* event)
     {
+        
         ImGuiIO& io = ImGui::GetIO();
         switch (event->type)
         {
             case SDL_MOUSEWHEEL:
             {
                 if (event->wheel.y > 0)
+                {
                     m_mouseWheel = 1;
+                }
                 if (event->wheel.y < 0)
                     m_mouseWheel = -1;
                 break;
@@ -288,6 +292,10 @@ namespace MrEngine {
     {
         ImGuiIO& io = ImGui::GetIO();
         io.Fonts->AddFontFromFileTTF(fontFile, size);
+        m_numFonts++;
+        ImFont* font = io.Fonts->Fonts[m_numFonts];
+        io.Fonts->Fonts[m_numFonts] = io.Fonts->Fonts[0];
+        io.Fonts->Fonts[0] = font;
     }
 
     void GUI::createFontsTexture()

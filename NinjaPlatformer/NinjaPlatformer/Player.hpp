@@ -37,7 +37,7 @@ public:
     
     void update(MrEngine::InputManager& inputManager, float deltaTime);
     
-    void desroy(b2World* world) { m_capsule.destroy(world); }
+    void destroy(b2World* world) { m_capsule.destroy(world); }
     
     //getters
     const Capsule& getCapsule() const { return m_capsule; }

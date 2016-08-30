@@ -29,11 +29,14 @@ public:
               MrEngine::GLTexture texture,
               MrEngine::ColorRGBA8 color,
               bool fixedRotation,
+              bool isDynamic,
+              float angle = 0.0f,
               glm::vec4 uvRect = glm::vec4(0.0f, 0.0f, 1.0f, 1.0f) );
     
     void draw(MrEngine::SpriteBatch& spriteBatch);
-    
     void destroy(b2World* world);
+    bool testPoint(float x, float y) const { return m_fixture->TestPoint(b2Vec2(x, y)); }
+    bool isDynamic() const { return m_body->GetType() == b2_dynamicBody;}
     
     //getters
     b2Body* getBody() const { return m_body; }

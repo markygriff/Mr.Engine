@@ -90,7 +90,7 @@ void GameplayScreen::onEntry()
         MrEngine::ColorRGBA8 color(randc(randGenerator), randc(randGenerator), randc(randGenerator), 255);
         Box newBox;
         float s = size(randGenerator);
-        newBox.init(m_world.get(), glm::vec2(xPos(randGenerator), yPos(randGenerator)), glm::vec2(s, s), m_texture, color, false);
+        newBox.init(m_world.get(), glm::vec2(xPos(randGenerator), yPos(randGenerator)), glm::vec2(s, s), m_texture, color, false, true);
         
         m_boxes.push_back(newBox);
     }
@@ -116,13 +116,12 @@ void GameplayScreen::onEntry()
     m_camera.init(m_window->getScreenWidth(), m_window->getScreenHeight());
     //zoom out
     m_camera.setScale(m_scale); ///< pixel per meter
-    
     //initialize player
     m_player.init(m_world.get(), glm::vec2(0.0f, 35.0f), glm::vec2(2.0f, 2.0f), glm::vec2(1.0f, 1.8f), MrEngine::ColorRGBA8(255,255,255,255));
     
     //initialize gui
     m_pMenu.init(m_window, false);
-    m_pMenu.loadFont("../GUI/fonts/mizufalp.ttf", 16.0f); ///<???
+    m_pMenu.loadFont("../Assets/Fonts/default.ttf", 12.0f); ///<???
 }
 
 void GameplayScreen::onExit()
@@ -290,7 +289,8 @@ void GameplayScreen::drawPauseMenu()
     ImGui::Render(); ///< calls set renderdrawlists function
 }
 
-void GameplayScreen::drawFPS() {
+void GameplayScreen::drawFPS()
+{
     //define font color
     const MrEngine::ColorRGBA8 fontColor(255, 220, 0, 255);
     // Convert float to char *

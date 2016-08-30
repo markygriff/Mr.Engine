@@ -8,6 +8,8 @@
 
 #include "Box.hpp"
 
+#include <iostream>
+
 Box::Box()
 {
     //empty
@@ -24,13 +26,25 @@ void Box::init(b2World* world,
                MrEngine::GLTexture texture,
                MrEngine::ColorRGBA8 color,
                bool fixedRotation,
-               glm::vec4 uvRect)
+               bool isDynamic,
+               float angle /* 0.0f */,
+               glm::vec4 uvRect /* (0.0f, 0.0f, 1.0f, 1.0f) */ )
 {
     //make the body
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     bodyDef.position.Set(position.x, position.y);
     bodyDef.fixedRotation = fixedRotation;
+    bodyDef.angle = angle;
+    
+    if (isDynamic)
+    {
+        bodyDef.type = b2_dynamicBody;
+    }
+    else
+    {
+        bodyDef.type = b2_staticBody;
+    }
     
     m_color = color;
     m_dimensions = dims;

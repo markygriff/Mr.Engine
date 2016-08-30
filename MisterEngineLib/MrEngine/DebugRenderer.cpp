@@ -131,7 +131,7 @@ namespace MrEngine {
     
     void DebugRenderer::drawLine(const glm::vec2& x, const glm::vec2& y, const ColorRGBA8& color)
     {
-        int i = m_verts.size();
+        int i = (int)m_verts.size();
         m_verts.resize(m_verts.size() + 2);
         
         m_verts[i].position = x;
@@ -226,7 +226,6 @@ namespace MrEngine {
     {
         m_program.use();
         
-        //
         GLint pUniform = m_program.getUniformLocation("P");
         glUniformMatrix4fv(pUniform, 1, GL_FALSE, &projectionMatrix[0][0]);
         
