@@ -11,6 +11,7 @@ It includes classes for:
   - Calculating and limiting the fps (Timing)
   - Controlling the main game using a game interface (IMainGame, IGameScreen)
   - Simple debug rendering for outlining simple shapes (DebugRenderer)
+  - Easy to set up and use User Interfaces using ImGui --> https://github.com/ocornut/imgui (GUI)
 
 A sample game (NinjaPlatformer) is provided which used Mr.Engine to create a mini game and a level editor
   - Note: the level editor is unfinished, as you can't actually save your levels. Working on it!
