@@ -29,15 +29,10 @@ namespace MrEngine {
         
         void swapBuffer();
         
-        //setters
-        
-        
         //getters
         int getScreenWidth() { return m_screenWidth; }
         int getScreenHeight() { return m_screenHeight; }
         SDL_Window* getSDLWindow() { return m_sdlWindow; }
-        
-        
         
     private:
         SDL_Window* m_sdlWindow;

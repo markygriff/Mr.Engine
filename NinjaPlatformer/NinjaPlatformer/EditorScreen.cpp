@@ -83,8 +83,8 @@ void EditorScreen::onExit()
     m_boxes.clear();
     m_lights.clear();
     
-    //stop the world from updating 
-    m_alive = false;
+    //stop the world from updating
+    m_active = false;
 }
 
 void EditorScreen::update(float deltaTime)
@@ -94,7 +94,7 @@ void EditorScreen::update(float deltaTime)
     m_camera.update();
     
     //if the game is live, update world physics
-    if (m_alive)
+    if (m_active)
     {
         m_player.update(m_game->inputManager, deltaTime);
         //update physics using time step!
@@ -285,11 +285,11 @@ void EditorScreen::drawUI()
             
             if (m_objectType == ObjectType::PLAYER)
             {
-                
+                //player customization
             }
             
             //display rotations width and height sliders
-            else if (m_objectType == ObjectType::PLATFORM)
+            else if (m_objectType == ObjectType::PLATFORM || (m_selectMode == SelectMode::SELECT && m_currentBox != NONE))
             {
                 //width slider
                 ImGui::PushID(4);
@@ -322,7 +322,8 @@ void EditorScreen::drawUI()
                 ImGui::PopID();
             }
             
-            else if (m_objectType == ObjectType::LIGHT)
+            //display light size slider
+            else if (m_objectType == ObjectType::LIGHT || (m_selectMode == SelectMode::SELECT && m_currentLight != NONE))
             {
                 ImGui::PushID(4);
                 ImGui::PushStyleColor(ImGuiCol_FrameBg, ImColor::HSV(6.0/7.0f, m_lightSize/25.0f, 0.5f));
@@ -382,7 +383,7 @@ void EditorScreen::drawUI()
             }
             ImGui::PopStyleColor(3);
             ImGui::PopID();
-            ImGui::Spacing();
+            ImGui::Spacing();ImGui::Spacing();ImGui::Spacing();
             
             //debug toggle
             ImGui::PushID(9);
@@ -400,7 +401,7 @@ void EditorScreen::drawUI()
             ImGui::TextColored(ImColor(1.0f, 1.0f, 1.0f), "%s", d);
             ImGui::Spacing();ImGui::Spacing();ImGui::Spacing();
             
-            //Player button
+            //Play button
             ImGui::PushID(10);
             ImGui::PushStyleColor(ImGuiCol_Button, ImColor::HSV(1.0f, 0.6f, 0.6f));
             ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImColor::HSV(1.0f, 0.7f, 0.7f));
@@ -414,21 +415,41 @@ void EditorScreen::drawUI()
                 }
                 else
                 {
-                    m_alive = true;
+                    if (!m_active)
+                    {
+                        //back up current level state
+                    }
+                    
+                    //set game to active
+                    m_active = true;
                 }
             }
             ImGui::PopStyleColor(3);
             ImGui::PopID();
             ImGui::SameLine();
 
-            //Platform button
+            //Pause button
+            ImGui::PushID(13);
+            ImGui::PushStyleColor(ImGuiCol_Button, ImColor::HSV(0.95f, 0.6f, 0.6f));
+            ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImColor::HSV(0.95f, 0.7f, 0.7f));
+            ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImColor::HSV(0.95f, 0.9f, 0.9f));
+            if (ImGui::Button("PAUSE"))
+            {
+                //check if there is a player character to play with
+                if (m_active) m_active = false;
+            }
+            ImGui::PopStyleColor(3);
+            ImGui::PopID();
+            ImGui::SameLine();
+            
+            //Reset button
             ImGui::PushID(11);
             ImGui::PushStyleColor(ImGuiCol_Button, ImColor::HSV(0.1f, 0.6f, 0.6f));
             ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImColor::HSV(0.1f, 0.7f, 0.7f));
             ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImColor::HSV(0.1f, 0.9f, 0.9f));
             if (ImGui::Button("RESET"))
             {
-                m_alive = false;
+                
             }
             ImGui::PopStyleColor(3);
             ImGui::PopID();
@@ -452,8 +473,7 @@ void EditorScreen::drawUI()
                               "- Green outline means Dynamic object\n"
                               "- Red outline means Static object"
                               );
-            
-            ImGui::BulletText("Press PLAY to play in your created level.");
+            ImGui::BulletText("Press PLAY/PAUSE to play/pause your created level.");
             ImGui::BulletText("Press RESET to reset your current level.");
         }
         
@@ -627,6 +647,9 @@ void EditorScreen::mousedownEvent(const SDL_Event &event)
                     //else look for the selected light
                     else
                     {
+                        //deselect light
+                        m_currentLight = NONE;
+                        
                         //find the new current selected light
                         for (int i = 0; i < m_lights.size(); i++)
                         {

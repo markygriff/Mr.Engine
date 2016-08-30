@@ -120,7 +120,7 @@ private:
     bool m_drawDebug = false;
     bool m_isDragging = false;
     bool m_deleteSelect = false;
-    bool m_alive = false;
+    bool m_active = false;
     
     Player m_player;
     
