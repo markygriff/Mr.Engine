@@ -44,10 +44,18 @@ public:
     const glm::vec2& getDimensions() const {return m_dimensions; }
     glm::vec2 getPosition() const { return glm::vec2(m_body->GetPosition().x, m_body->GetPosition().y); }
     const MrEngine::ColorRGBA8& getColor() const { return m_color; }
+    glm::vec4 getUvRect() const { return m_uvRect; }
+    float getAngle() const { return m_body->GetAngle(); }
+    const MrEngine::GLTexture&  getTexture()       const { return m_texture; }
+    const bool& getFixedRotation() const { return m_fixedRotation; }
+    const bool& getIsDynamic() const { return m_isDynamic; }
     
 private:
     b2Body* m_body = nullptr;
     b2Fixture* m_fixture = nullptr;
+    
+    bool m_fixedRotation;
+    bool m_isDynamic;
     
     glm::vec2 m_dimensions;
     glm::vec4 m_uvRect;

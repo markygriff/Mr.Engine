@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CC8F3E071D620D8F003F80C0 /* GUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC8F3E051D620D8F003F80C0 /* GUI.cpp */; };
+		CC8F3E081D620D8F003F80C0 /* GUI.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC8F3E061D620D8F003F80C0 /* GUI.hpp */; };
+		CC9BA57E1D5BB71400EF149F /* AudioEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA5691D5BB71400EF149F /* AudioEngine.cpp */; };
+		CC9BA57F1D5BB71400EF149F /* Camera2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA56A1D5BB71400EF149F /* Camera2D.cpp */; };
+		CC9BA5801D5BB71400EF149F /* DebugRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA56B1D5BB71400EF149F /* DebugRenderer.cpp */; };
+		CC9BA5811D5BB71400EF149F /* FatalError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA56C1D5BB71400EF149F /* FatalError.cpp */; };
+		CC9BA5821D5BB71400EF149F /* GLSLProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA56D1D5BB71400EF149F /* GLSLProgram.cpp */; };
+		CC9BA5831D5BB71400EF149F /* ImageLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA56E1D5BB71400EF149F /* ImageLoader.cpp */; };
+		CC9BA5841D5BB71400EF149F /* IMainGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA56F1D5BB71400EF149F /* IMainGame.cpp */; };
+		CC9BA5851D5BB71400EF149F /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA5701D5BB71400EF149F /* InputManager.cpp */; };
+		CC9BA5861D5BB71400EF149F /* IOManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA5711D5BB71400EF149F /* IOManager.cpp */; };
+		CC9BA5871D5BB71400EF149F /* MrEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA5721D5BB71400EF149F /* MrEngine.cpp */; };
+		CC9BA5881D5BB71400EF149F /* ParticleBatch2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA5731D5BB71400EF149F /* ParticleBatch2D.cpp */; };
+		CC9BA5891D5BB71400EF149F /* ParticleEngine2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA5741D5BB71400EF149F /* ParticleEngine2D.cpp */; };
+		CC9BA58A1D5BB71400EF149F /* picoPNG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA5751D5BB71400EF149F /* picoPNG.cpp */; };
+		CC9BA58B1D5BB71400EF149F /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA5761D5BB71400EF149F /* ResourceManager.cpp */; };
+		CC9BA58C1D5BB71400EF149F /* ScreenList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA5771D5BB71400EF149F /* ScreenList.cpp */; };
+		CC9BA58D1D5BB71400EF149F /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA5781D5BB71400EF149F /* Sprite.cpp */; };
+		CC9BA58E1D5BB71400EF149F /* SpriteBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA5791D5BB71400EF149F /* SpriteBatch.cpp */; };
+		CC9BA58F1D5BB71400EF149F /* SpriteFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA57A1D5BB71400EF149F /* SpriteFont.cpp */; };
+		CC9BA5901D5BB71400EF149F /* TextureCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA57B1D5BB71400EF149F /* TextureCache.cpp */; };
+		CC9BA5911D5BB71400EF149F /* Timing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA57C1D5BB71400EF149F /* Timing.cpp */; };
+		CC9BA5921D5BB71400EF149F /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA57D1D5BB71400EF149F /* Window.cpp */; };
+		CC9BA5AC1D5BB74400EF149F /* AudioEngine.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5931D5BB74400EF149F /* AudioEngine.hpp */; };
+		CC9BA5AD1D5BB74400EF149F /* Camera2D.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5941D5BB74400EF149F /* Camera2D.hpp */; };
+		CC9BA5AE1D5BB74400EF149F /* DebugRenderer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5951D5BB74400EF149F /* DebugRenderer.hpp */; };
+		CC9BA5AF1D5BB74400EF149F /* FatalError.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5961D5BB74400EF149F /* FatalError.hpp */; };
+		CC9BA5B01D5BB74400EF149F /* GLSLProgram.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5971D5BB74400EF149F /* GLSLProgram.hpp */; };
+		CC9BA5B11D5BB74400EF149F /* GLTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5981D5BB74400EF149F /* GLTexture.h */; };
+		CC9BA5B21D5BB74400EF149F /* IGameScreen.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5991D5BB74400EF149F /* IGameScreen.hpp */; };
+		CC9BA5B31D5BB74400EF149F /* ImageLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA59A1D5BB74400EF149F /* ImageLoader.hpp */; };
+		CC9BA5B41D5BB74400EF149F /* IMainGame.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA59B1D5BB74400EF149F /* IMainGame.hpp */; };
+		CC9BA5B51D5BB74400EF149F /* InputManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA59C1D5BB74400EF149F /* InputManager.hpp */; };
+		CC9BA5B61D5BB74400EF149F /* IOManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA59D1D5BB74400EF149F /* IOManager.hpp */; };
+		CC9BA5B71D5BB74400EF149F /* MrEngine.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA59E1D5BB74400EF149F /* MrEngine.hpp */; };
+		CC9BA5B81D5BB74400EF149F /* ParticleBatch2D.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA59F1D5BB74400EF149F /* ParticleBatch2D.hpp */; };
+		CC9BA5B91D5BB74400EF149F /* ParticleEngine2D.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5A01D5BB74400EF149F /* ParticleEngine2D.hpp */; };
+		CC9BA5BA1D5BB74400EF149F /* picoPNG.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5A11D5BB74400EF149F /* picoPNG.hpp */; };
+		CC9BA5BB1D5BB74400EF149F /* ResourceManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5A21D5BB74400EF149F /* ResourceManager.hpp */; };
+		CC9BA5BC1D5BB74400EF149F /* ScreenList.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5A31D5BB74400EF149F /* ScreenList.hpp */; };
+		CC9BA5BD1D5BB74400EF149F /* Sprite.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5A41D5BB74400EF149F /* Sprite.hpp */; };
+		CC9BA5BE1D5BB74400EF149F /* SpriteBatch.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5A51D5BB74400EF149F /* SpriteBatch.hpp */; };
+		CC9BA5BF1D5BB74400EF149F /* SpriteFont.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5A61D5BB74400EF149F /* SpriteFont.h */; };
+		CC9BA5C01D5BB74400EF149F /* TextureCache.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5A71D5BB74400EF149F /* TextureCache.hpp */; };
+		CC9BA5C11D5BB74400EF149F /* TileSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5A81D5BB74400EF149F /* TileSheet.h */; };
+		CC9BA5C21D5BB74400EF149F /* Timing.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5A91D5BB74400EF149F /* Timing.hpp */; };
+		CC9BA5C31D5BB74400EF149F /* Vertex.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5AA1D5BB74400EF149F /* Vertex.h */; };
+		CC9BA5C41D5BB74400EF149F /* Window.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC9BA5AB1D5BB74400EF149F /* Window.hpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CC8AECA01D3DA6AE00B20AFA /* libMisterEngineLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMisterEngineLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC8F3E051D620D8F003F80C0 /* GUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GUI.cpp; path = MrEngine/GUI.cpp; sourceTree = "<group>"; };
+		CC8F3E061D620D8F003F80C0 /* GUI.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GUI.hpp; path = MrEngine/GUI.hpp; sourceTree = "<group>"; };
+		CC8F3F0B1D636284003F80C0 /* Box2D */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Box2D; path = ../deps/includes/Box2D; sourceTree = "<group>"; };
+		CC8F3F0C1D636284003F80C0 /* CEGUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CEGUI; path = ../deps/includes/CEGUI; sourceTree = "<group>"; };
+		CC8F3F0D1D636284003F80C0 /* Frameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Frameworks; path = ../deps/includes/Frameworks; sourceTree = "<group>"; };
+		CC8F3F0E1D636284003F80C0 /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; name = glm; path = ../deps/includes/glm; sourceTree = "<group>"; };
+		CC8F3F0F1D636284003F80C0 /* imgui */ = {isa = PBXFileReference; lastKnownFileType = folder; name = imgui; path = ../deps/includes/imgui; sourceTree = "<group>"; };
+		CC9BA5671D5BB6DC00EF149F /* MrEngine */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MrEngine; sourceTree = "<group>"; };
+		CC9BA5691D5BB71400EF149F /* AudioEngine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AudioEngine.cpp; path = MrEngine/AudioEngine.cpp; sourceTree = "<group>"; };
+		CC9BA56A1D5BB71400EF149F /* Camera2D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Camera2D.cpp; path = MrEngine/Camera2D.cpp; sourceTree = "<group>"; };
+		CC9BA56B1D5BB71400EF149F /* DebugRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DebugRenderer.cpp; path = MrEngine/DebugRenderer.cpp; sourceTree = "<group>"; };
+		CC9BA56C1D5BB71400EF149F /* FatalError.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = FatalError.cpp; path = MrEngine/FatalError.cpp; sourceTree = "<group>"; };
+		CC9BA56D1D5BB71400EF149F /* GLSLProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = GLSLProgram.cpp; path = MrEngine/GLSLProgram.cpp; sourceTree = "<group>"; };
+		CC9BA56E1D5BB71400EF149F /* ImageLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ImageLoader.cpp; path = MrEngine/ImageLoader.cpp; sourceTree = "<group>"; };
+		CC9BA56F1D5BB71400EF149F /* IMainGame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = IMainGame.cpp; path = MrEngine/IMainGame.cpp; sourceTree = "<group>"; };
+		CC9BA5701D5BB71400EF149F /* InputManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputManager.cpp; path = MrEngine/InputManager.cpp; sourceTree = "<group>"; };
+		CC9BA5711D5BB71400EF149F /* IOManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = IOManager.cpp; path = MrEngine/IOManager.cpp; sourceTree = "<group>"; };
+		CC9BA5721D5BB71400EF149F /* MrEngine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MrEngine.cpp; path = MrEngine/MrEngine.cpp; sourceTree = "<group>"; };
+		CC9BA5731D5BB71400EF149F /* ParticleBatch2D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ParticleBatch2D.cpp; path = MrEngine/ParticleBatch2D.cpp; sourceTree = "<group>"; };
+		CC9BA5741D5BB71400EF149F /* ParticleEngine2D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ParticleEngine2D.cpp; path = MrEngine/ParticleEngine2D.cpp; sourceTree = "<group>"; };
+		CC9BA5751D5BB71400EF149F /* picoPNG.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = picoPNG.cpp; path = MrEngine/picoPNG.cpp; sourceTree = "<group>"; };
+		CC9BA5761D5BB71400EF149F /* ResourceManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ResourceManager.cpp; path = MrEngine/ResourceManager.cpp; sourceTree = "<group>"; };
+		CC9BA5771D5BB71400EF149F /* ScreenList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ScreenList.cpp; path = MrEngine/ScreenList.cpp; sourceTree = "<group>"; };
+		CC9BA5781D5BB71400EF149F /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Sprite.cpp; path = MrEngine/Sprite.cpp; sourceTree = "<group>"; };
+		CC9BA5791D5BB71400EF149F /* SpriteBatch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SpriteBatch.cpp; path = MrEngine/SpriteBatch.cpp; sourceTree = "<group>"; };
+		CC9BA57A1D5BB71400EF149F /* SpriteFont.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SpriteFont.cpp; path = MrEngine/SpriteFont.cpp; sourceTree = "<group>"; };
+		CC9BA57B1D5BB71400EF149F /* TextureCache.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TextureCache.cpp; path = MrEngine/TextureCache.cpp; sourceTree = "<group>"; };
+		CC9BA57C1D5BB71400EF149F /* Timing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Timing.cpp; path = MrEngine/Timing.cpp; sourceTree = "<group>"; };
+		CC9BA57D1D5BB71400EF149F /* Window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = MrEngine/Window.cpp; sourceTree = "<group>"; };
+		CC9BA5931D5BB74400EF149F /* AudioEngine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = AudioEngine.hpp; path = MrEngine/AudioEngine.hpp; sourceTree = "<group>"; };
+		CC9BA5941D5BB74400EF149F /* Camera2D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Camera2D.hpp; path = MrEngine/Camera2D.hpp; sourceTree = "<group>"; };
+		CC9BA5951D5BB74400EF149F /* DebugRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = DebugRenderer.hpp; path = MrEngine/DebugRenderer.hpp; sourceTree = "<group>"; };
+		CC9BA5961D5BB74400EF149F /* FatalError.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = FatalError.hpp; path = MrEngine/FatalError.hpp; sourceTree = "<group>"; };
+		CC9BA5971D5BB74400EF149F /* GLSLProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = GLSLProgram.hpp; path = MrEngine/GLSLProgram.hpp; sourceTree = "<group>"; };
+		CC9BA5981D5BB74400EF149F /* GLTexture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLTexture.h; path = MrEngine/GLTexture.h; sourceTree = "<group>"; };
+		CC9BA5991D5BB74400EF149F /* IGameScreen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IGameScreen.hpp; path = MrEngine/IGameScreen.hpp; sourceTree = "<group>"; };
+		CC9BA59A1D5BB74400EF149F /* ImageLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ImageLoader.hpp; path = MrEngine/ImageLoader.hpp; sourceTree = "<group>"; };
+		CC9BA59B1D5BB74400EF149F /* IMainGame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IMainGame.hpp; path = MrEngine/IMainGame.hpp; sourceTree = "<group>"; };
+		CC9BA59C1D5BB74400EF149F /* InputManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = InputManager.hpp; path = MrEngine/InputManager.hpp; sourceTree = "<group>"; };
+		CC9BA59D1D5BB74400EF149F /* IOManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IOManager.hpp; path = MrEngine/IOManager.hpp; sourceTree = "<group>"; };
+		CC9BA59E1D5BB74400EF149F /* MrEngine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = MrEngine.hpp; path = MrEngine/MrEngine.hpp; sourceTree = "<group>"; };
+		CC9BA59F1D5BB74400EF149F /* ParticleBatch2D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ParticleBatch2D.hpp; path = MrEngine/ParticleBatch2D.hpp; sourceTree = "<group>"; };
+		CC9BA5A01D5BB74400EF149F /* ParticleEngine2D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ParticleEngine2D.hpp; path = MrEngine/ParticleEngine2D.hpp; sourceTree = "<group>"; };
+		CC9BA5A11D5BB74400EF149F /* picoPNG.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = picoPNG.hpp; path = MrEngine/picoPNG.hpp; sourceTree = "<group>"; };
+		CC9BA5A21D5BB74400EF149F /* ResourceManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ResourceManager.hpp; path = MrEngine/ResourceManager.hpp; sourceTree = "<group>"; };
+		CC9BA5A31D5BB74400EF149F /* ScreenList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ScreenList.hpp; path = MrEngine/ScreenList.hpp; sourceTree = "<group>"; };
+		CC9BA5A41D5BB74400EF149F /* Sprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Sprite.hpp; path = MrEngine/Sprite.hpp; sourceTree = "<group>"; };
+		CC9BA5A51D5BB74400EF149F /* SpriteBatch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = SpriteBatch.hpp; path = MrEngine/SpriteBatch.hpp; sourceTree = "<group>"; };
+		CC9BA5A61D5BB74400EF149F /* SpriteFont.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpriteFont.h; path = MrEngine/SpriteFont.h; sourceTree = "<group>"; };
+		CC9BA5A71D5BB74400EF149F /* TextureCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = TextureCache.hpp; path = MrEngine/TextureCache.hpp; sourceTree = "<group>"; };
+		CC9BA5A81D5BB74400EF149F /* TileSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TileSheet.h; path = MrEngine/TileSheet.h; sourceTree = "<group>"; };
+		CC9BA5A91D5BB74400EF149F /* Timing.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Timing.hpp; path = MrEngine/Timing.hpp; sourceTree = "<group>"; };
+		CC9BA5AA1D5BB74400EF149F /* Vertex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Vertex.h; path = MrEngine/Vertex.h; sourceTree = "<group>"; };
+		CC9BA5AB1D5BB74400EF149F /* Window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Window.hpp; path = MrEngine/Window.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CC8AEC9D1D3DA6AE00B20AFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CC8AEC971D3DA6AE00B20AFA = {
+			isa = PBXGroup;
+			children = (
+				CC8F3F0A1D636267003F80C0 /* includes */,
+				CC8F3E051D620D8F003F80C0 /* GUI.cpp */,
+				CC8F3E061D620D8F003F80C0 /* GUI.hpp */,
+				CC9BA5931D5BB74400EF149F /* AudioEngine.hpp */,
+				CC9BA5941D5BB74400EF149F /* Camera2D.hpp */,
+				CC9BA56B1D5BB71400EF149F /* DebugRenderer.cpp */,
+				CC9BA5951D5BB74400EF149F /* DebugRenderer.hpp */,
+				CC9BA5961D5BB74400EF149F /* FatalError.hpp */,
+				CC9BA56D1D5BB71400EF149F /* GLSLProgram.cpp */,
+				CC9BA5971D5BB74400EF149F /* GLSLProgram.hpp */,
+				CC9BA5981D5BB74400EF149F /* GLTexture.h */,
+				CC9BA5991D5BB74400EF149F /* IGameScreen.hpp */,
+				CC9BA59A1D5BB74400EF149F /* ImageLoader.hpp */,
+				CC9BA59B1D5BB74400EF149F /* IMainGame.hpp */,
+				CC9BA59C1D5BB74400EF149F /* InputManager.hpp */,
+				CC9BA59D1D5BB74400EF149F /* IOManager.hpp */,
+				CC9BA59E1D5BB74400EF149F /* MrEngine.hpp */,
+				CC9BA59F1D5BB74400EF149F /* ParticleBatch2D.hpp */,
+				CC9BA5A01D5BB74400EF149F /* ParticleEngine2D.hpp */,
+				CC9BA5A11D5BB74400EF149F /* picoPNG.hpp */,
+				CC9BA5A21D5BB74400EF149F /* ResourceManager.hpp */,
+				CC9BA5A31D5BB74400EF149F /* ScreenList.hpp */,
+				CC9BA5A41D5BB74400EF149F /* Sprite.hpp */,
+				CC9BA5A61D5BB74400EF149F /* SpriteFont.h */,
+				CC9BA5A71D5BB74400EF149F /* TextureCache.hpp */,
+				CC9BA5A81D5BB74400EF149F /* TileSheet.h */,
+				CC9BA5A91D5BB74400EF149F /* Timing.hpp */,
+				CC9BA5AA1D5BB74400EF149F /* Vertex.h */,
+				CC9BA5AB1D5BB74400EF149F /* Window.hpp */,
+				CC9BA5691D5BB71400EF149F /* AudioEngine.cpp */,
+				CC9BA56A1D5BB71400EF149F /* Camera2D.cpp */,
+				CC9BA56C1D5BB71400EF149F /* FatalError.cpp */,
+				CC9BA56E1D5BB71400EF149F /* ImageLoader.cpp */,
+				CC9BA56F1D5BB71400EF149F /* IMainGame.cpp */,
+				CC9BA5701D5BB71400EF149F /* InputManager.cpp */,
+				CC9BA5711D5BB71400EF149F /* IOManager.cpp */,
+				CC9BA5721D5BB71400EF149F /* MrEngine.cpp */,
+				CC9BA5731D5BB71400EF149F /* ParticleBatch2D.cpp */,
+				CC9BA5741D5BB71400EF149F /* ParticleEngine2D.cpp */,
+				CC9BA5751D5BB71400EF149F /* picoPNG.cpp */,
+				CC9BA5761D5BB71400EF149F /* ResourceManager.cpp */,
+				CC9BA5771D5BB71400EF149F /* ScreenList.cpp */,
+				CC9BA5781D5BB71400EF149F /* Sprite.cpp */,
+				CC9BA5791D5BB71400EF149F /* SpriteBatch.cpp */,
+				CC9BA5A51D5BB74400EF149F /* SpriteBatch.hpp */,
+				CC9BA57A1D5BB71400EF149F /* SpriteFont.cpp */,
+				CC9BA57B1D5BB71400EF149F /* TextureCache.cpp */,
+				CC9BA57C1D5BB71400EF149F /* Timing.cpp */,
+				CC9BA57D1D5BB71400EF149F /* Window.cpp */,
+				CC9BA5671D5BB6DC00EF149F /* MrEngine */,
+				CC8AECA11D3DA6AE00B20AFA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CC8AECA11D3DA6AE00B20AFA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC8AECA01D3DA6AE00B20AFA /* libMisterEngineLib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CC8F3F0A1D636267003F80C0 /* includes */ = {
+			isa = PBXGroup;
+			children = (
+				CC8F3F0B1D636284003F80C0 /* Box2D */,
+				CC8F3F0C1D636284003F80C0 /* CEGUI */,
+				CC8F3F0D1D636284003F80C0 /* Frameworks */,
+				CC8F3F0E1D636284003F80C0 /* glm */,
+				CC8F3F0F1D636284003F80C0 /* imgui */,
+			);
+			name = includes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CC8AEC9E1D3DA6AE00B20AFA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC9BA5AC1D5BB74400EF149F /* AudioEngine.hpp in Headers */,
+				CC9BA5AD1D5BB74400EF149F /* Camera2D.hpp in Headers */,
+				CC9BA5AE1D5BB74400EF149F /* DebugRenderer.hpp in Headers */,
+				CC9BA5AF1D5BB74400EF149F /* FatalError.hpp in Headers */,
+				CC9BA5B01D5BB74400EF149F /* GLSLProgram.hpp in Headers */,
+				CC9BA5B11D5BB74400EF149F /* GLTexture.h in Headers */,
+				CC9BA5B21D5BB74400EF149F /* IGameScreen.hpp in Headers */,
+				CC9BA5B31D5BB74400EF149F /* ImageLoader.hpp in Headers */,
+				CC9BA5B41D5BB74400EF149F /* IMainGame.hpp in Headers */,
+				CC9BA5B51D5BB74400EF149F /* InputManager.hpp in Headers */,
+				CC9BA5B61D5BB74400EF149F /* IOManager.hpp in Headers */,
+				CC9BA5B71D5BB74400EF149F /* MrEngine.hpp in Headers */,
+				CC9BA5B81D5BB74400EF149F /* ParticleBatch2D.hpp in Headers */,
+				CC9BA5B91D5BB74400EF149F /* ParticleEngine2D.hpp in Headers */,
+				CC8F3E081D620D8F003F80C0 /* GUI.hpp in Headers */,
+				CC9BA5BA1D5BB74400EF149F /* picoPNG.hpp in Headers */,
+				CC9BA5BB1D5BB74400EF149F /* ResourceManager.hpp in Headers */,
+				CC9BA5BC1D5BB74400EF149F /* ScreenList.hpp in Headers */,
+				CC9BA5BD1D5BB74400EF149F /* Sprite.hpp in Headers */,
+				CC9BA5BE1D5BB74400EF149F /* SpriteBatch.hpp in Headers */,
+				CC9BA5BF1D5BB74400EF149F /* SpriteFont.h in Headers */,
+				CC9BA5C01D5BB74400EF149F /* TextureCache.hpp in Headers */,
+				CC9BA5C11D5BB74400EF149F /* TileSheet.h in Headers */,
+				CC9BA5C21D5BB74400EF149F /* Timing.hpp in Headers */,
+				CC9BA5C31D5BB74400EF149F /* Vertex.h in Headers */,
+				CC9BA5C41D5BB74400EF149F /* Window.hpp in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CC8AEC9F1D3DA6AE00B20AFA /* MrEngine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC8AECA41D3DA6AE00B20AFA /* Build configuration list for PBXNativeTarget "MrEngine" */;
+			buildPhases = (
+				CC8AEC9C1D3DA6AE00B20AFA /* Sources */,
+				CC8AEC9D1D3DA6AE00B20AFA /* Frameworks */,
+				CC8AEC9E1D3DA6AE00B20AFA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MrEngine;
+			productName = MisterEngineLib;
+			productReference = CC8AECA01D3DA6AE00B20AFA /* libMisterEngineLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CC8AEC981D3DA6AE00B20AFA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Mark Griffith";
+				TargetAttributes = {
+					CC8AEC9F1D3DA6AE00B20AFA = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = CC8AEC9B1D3DA6AE00B20AFA /* Build configuration list for PBXProject "MrEngine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CC8AEC971D3DA6AE00B20AFA;
+			productRefGroup = CC8AECA11D3DA6AE00B20AFA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CC8AEC9F1D3DA6AE00B20AFA /* MrEngine */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CC8AEC9C1D3DA6AE00B20AFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC9BA57E1D5BB71400EF149F /* AudioEngine.cpp in Sources */,
+				CC9BA57F1D5BB71400EF149F /* Camera2D.cpp in Sources */,
+				CC9BA5801D5BB71400EF149F /* DebugRenderer.cpp in Sources */,
+				CC9BA5811D5BB71400EF149F /* FatalError.cpp in Sources */,
+				CC9BA5821D5BB71400EF149F /* GLSLProgram.cpp in Sources */,
+				CC9BA5831D5BB71400EF149F /* ImageLoader.cpp in Sources */,
+				CC9BA5841D5BB71400EF149F /* IMainGame.cpp in Sources */,
+				CC9BA5851D5BB71400EF149F /* InputManager.cpp in Sources */,
+				CC9BA5861D5BB71400EF149F /* IOManager.cpp in Sources */,
+				CC9BA5871D5BB71400EF149F /* MrEngine.cpp in Sources */,
+				CC9BA5881D5BB71400EF149F /* ParticleBatch2D.cpp in Sources */,
+				CC9BA5891D5BB71400EF149F /* ParticleEngine2D.cpp in Sources */,
+				CC9BA58A1D5BB71400EF149F /* picoPNG.cpp in Sources */,
+				CC8F3E071D620D8F003F80C0 /* GUI.cpp in Sources */,
+				CC9BA58B1D5BB71400EF149F /* ResourceManager.cpp in Sources */,
+				CC9BA58C1D5BB71400EF149F /* ScreenList.cpp in Sources */,
+				CC9BA58D1D5BB71400EF149F /* Sprite.cpp in Sources */,
+				CC9BA58E1D5BB71400EF149F /* SpriteBatch.cpp in Sources */,
+				CC9BA58F1D5BB71400EF149F /* SpriteFont.cpp in Sources */,
+				CC9BA5901D5BB71400EF149F /* TextureCache.cpp in Sources */,
+				CC9BA5911D5BB71400EF149F /* Timing.cpp in Sources */,
+				CC9BA5921D5BB71400EF149F /* Window.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CC8AECA21D3DA6AE00B20AFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CC8AECA31D3DA6AE00B20AFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CC8AECA51D3DA6AE00B20AFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../deps/lib/Debug";
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../deps/includes";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = MrEngine;
+				SYMROOT = build;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../deps/includes/";
+			};
+			name = Debug;
+		};
+		CC8AECA61D3DA6AE00B20AFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../deps/lib/Release";
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../deps/includes";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = MrEngine;
+				SYMROOT = build;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../deps/includes/";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CC8AEC9B1D3DA6AE00B20AFA /* Build configuration list for PBXProject "MrEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC8AECA21D3DA6AE00B20AFA /* Debug */,
+				CC8AECA31D3DA6AE00B20AFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC8AECA41D3DA6AE00B20AFA /* Build configuration list for PBXNativeTarget "MrEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC8AECA51D3DA6AE00B20AFA /* Debug */,
+				CC8AECA61D3DA6AE00B20AFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CC8AEC981D3DA6AE00B20AFA /* Project object */;
+}

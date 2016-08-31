@@ -25,6 +25,7 @@
 #include <Box2D/Box2D.h>
 #include <stdio.h>
 #include <vector>
+#include <string>
 
 const float LIGHT_SELECT_RADIUS = 0.5f;
 const int NONE = -1;
@@ -77,6 +78,7 @@ public:
 private:
     void drawUI();
     void drawWorld();
+    void clearLevel();
     
     void checkInput();
     bool inLightSelect(const Light& l, const glm::vec2& pos);
@@ -97,6 +99,8 @@ private:
     
     void startGameClicked();
     void mainMenuClicked();
+    bool saveClicked();
+    bool loadClicked();
     void exitClicked();
     
     int m_nextScreenIndex = SCREEN_INDEX_GAMEPLAY;
@@ -129,6 +133,9 @@ private:
     
     std::vector<Light> m_lights;
     int m_currentLight = NONE;
+    
+    std::vector<std::string> m_saveItems;
+    std::vector<std::string> m_loadItems;
     
     std::unique_ptr<b2World> m_world;
 

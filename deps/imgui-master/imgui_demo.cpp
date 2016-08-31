@@ -1724,6 +1724,8 @@ void ImGui::ShowStyleEditor(ImGuiStyle* ref)
             ImGui::BulletText("Font %d: \'%s\', %.2f px, %d glyphs", i, font->ConfigData ? font->ConfigData[0].Name : "", font->FontSize, font->Glyphs.Size);
             ImGui::TreePush((void*)(intptr_t)i);
             if (i > 0) { ImGui::SameLine(); if (ImGui::SmallButton("Set as default")) { atlas->Fonts[i] = atlas->Fonts[0]; atlas->Fonts[0] = font; } }
+            
+            
             ImGui::PushFont(font);
             ImGui::Text("The quick brown fox jumps over the lazy dog");
             ImGui::PopFont();

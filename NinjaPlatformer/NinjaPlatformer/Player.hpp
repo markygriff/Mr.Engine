@@ -41,7 +41,9 @@ public:
     
     //getters
     const Capsule& getCapsule() const { return m_capsule; }
-    
+    const glm::vec2& getDrawDims() const { return m_drawDims; }
+    const glm::vec2& getCollisionDims() const { return m_collisionDims; }
+    const MrEngine::ColorRGBA8 getColor() const { return m_color; }
     glm::vec2 getPosition() const { return glm::vec2(m_capsule.getBody()->GetPosition().x, m_capsule.getBody()->GetPosition().y); }
 
 private:
@@ -52,6 +54,7 @@ private:
     MrEngine::TileSheet m_texture;
     
     glm::vec2 m_drawDims;
+    glm::vec2 m_collisionDims;
     
     PlayerMoveState m_moveState = PlayerMoveState::STANDING;
     

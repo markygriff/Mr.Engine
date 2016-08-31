@@ -121,7 +121,7 @@ void GameplayScreen::onEntry()
     
     //initialize gui
     m_pMenu.init(m_window, false);
-    m_pMenu.loadFont("../Assets/Fonts/default.ttf", 12.0f); ///<???
+    m_pMenu.loadFont("../Assets/Fonts/extrafonts/DejaVuSans.ttf", 14.0f);
 }
 
 void GameplayScreen::onExit()
@@ -255,6 +255,8 @@ void GameplayScreen::drawPauseMenu()
 {
     ImGuiIO& io = ImGui::GetIO();
     
+    static bool show_test_window = false;
+    
     //display pause menu
     if (m_pMenu.displayed)
     {
@@ -265,17 +267,14 @@ void GameplayScreen::drawPauseMenu()
         //ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(50,0));
         if (ImGui::Button("Resume")) m_pMenu.displayed ^= 1;
         //ImGui::SameLine();
-        
-        if (ImGui::Button("Exit")) { endGUI(); exitClicked(); return; }
-        
         if (ImGui::Button("Main Menu")) { endGUI(); mainMenuClicked(); return; }
+        if (ImGui::Button("Show Test Window")) { show_test_window ^= 1; }
+        if (ImGui::Button("Exit")) { endGUI(); exitClicked(); return; }
         
         //ImGui::PopStyleVar();
         ImGui::End();
     }
     
-    
-    static bool show_test_window = true;
     if (show_test_window)
     {
         ImGui::SetNextWindowSize(ImVec2(500, 500), ImGuiSetCond_Always);

@@ -17,7 +17,7 @@ Box::Box()
 
 Box::~Box()
 {
-    
+    //empty
 }
 
 void Box::init(b2World* world,
@@ -35,15 +35,18 @@ void Box::init(b2World* world,
     bodyDef.type = b2_dynamicBody;
     bodyDef.position.Set(position.x, position.y);
     bodyDef.fixedRotation = fixedRotation;
+    m_fixedRotation = fixedRotation;
     bodyDef.angle = angle;
     
     if (isDynamic)
     {
         bodyDef.type = b2_dynamicBody;
+        m_isDynamic = true;
     }
     else
     {
         bodyDef.type = b2_staticBody;
+        m_isDynamic = false;
     }
     
     m_color = color;

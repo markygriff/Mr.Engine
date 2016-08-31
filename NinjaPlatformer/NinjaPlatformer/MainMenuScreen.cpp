@@ -48,6 +48,7 @@ void MainMenuScreen::onEntry()
     m_camera.setScale(m_scale); ///< pixel per meter
     //initialize menu
     m_menuGUI.init(m_window, true);
+    m_menuGUI.loadFont("../Assets/Fonts/extrafonts/DejaVuSans.ttf", 14.0f);
 }
 
 void MainMenuScreen::onExit()

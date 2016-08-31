@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC611D731D73876200144926 /* libMrEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611D721D73876200144926 /* libMrEngine.a */; };
+		CC611E751D7780C700144926 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E711D7780C700144926 /* libboost_system.dylib */; };
+		CC611E761D7780C700144926 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E721D7780C700144926 /* libboost_filesystem.dylib */; };
+		CC611E7C1D77821800144926 /* LevelReaderWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC611E7A1D77821800144926 /* LevelReaderWriter.cpp */; };
+		CC611E7D1D7783B700144926 /* libMrEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611D721D73876200144926 /* libMrEngine.a */; };
 		CC7EBE091D64E93200DF36A9 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC7EBE081D64E93200DF36A9 /* imgui_demo.cpp */; };
 		CC990C281D60C2F4004FAFA9 /* libBox2D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9BA5D01D5D50D000EF149F /* libBox2D.a */; };
 		CC9BA5411D58163200EF149F /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9BA5361D5813DA00EF149F /* SDL2.framework */; };
@@ -40,13 +43,18 @@
 
 /* Begin PBXFileReference section */
 		CC611D721D73876200144926 /* libMrEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMrEngine.a; path = ../deps/lib/Release/libMrEngine.a; sourceTree = "<group>"; };
+		CC611E711D7780C700144926 /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_system.dylib; path = ../deps/lib/boost/libboost_system.dylib; sourceTree = "<group>"; };
+		CC611E721D7780C700144926 /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_filesystem.dylib; path = ../deps/lib/boost/libboost_filesystem.dylib; sourceTree = "<group>"; };
+		CC611E731D7780C700144926 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../deps/lib/boost/libboost_system.a; sourceTree = "<group>"; };
+		CC611E741D7780C700144926 /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = ../deps/lib/boost/libboost_filesystem.a; sourceTree = "<group>"; };
+		CC611E791D77816A00144926 /* boost */ = {isa = PBXFileReference; lastKnownFileType = folder; name = boost; path = ../deps/includes/boost; sourceTree = "<group>"; };
+		CC611E7A1D77821800144926 /* LevelReaderWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelReaderWriter.cpp; sourceTree = "<group>"; };
+		CC611E7B1D77821800144926 /* LevelReaderWriter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LevelReaderWriter.hpp; sourceTree = "<group>"; };
 		CC7EBE081D64E93200DF36A9 /* imgui_demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui_demo.cpp; path = ../deps/includes/imgui/imgui_demo.cpp; sourceTree = "<group>"; };
-		CC8F3E021D620CAD003F80C0 /* libMisterEngineLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMisterEngineLib.a; path = "../MisterEngineLib/build/MisterEngineLib.build/Release/MisterEngineLib.build/Objects-normal/x86_64/libMisterEngineLib.a"; sourceTree = "<group>"; };
 		CC8F3F071D628943003F80C0 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Assets/Fonts; sourceTree = "<group>"; };
 		CC8F3F081D628943003F80C0 /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Shaders; path = Assets/Shaders; sourceTree = "<group>"; };
 		CC8F3F091D628943003F80C0 /* Textures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Textures; path = Assets/Textures; sourceTree = "<group>"; };
 		CC8F3F111D63664B003F80C0 /* Box2D */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Box2D; path = ../deps/includes/Box2D; sourceTree = "<group>"; };
-		CC8F3F121D63664B003F80C0 /* CEGUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CEGUI; path = ../deps/includes/CEGUI; sourceTree = "<group>"; };
 		CC8F3F131D63664B003F80C0 /* Frameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Frameworks; path = ../deps/includes/Frameworks; sourceTree = "<group>"; };
 		CC8F3F141D63664B003F80C0 /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; name = glm; path = ../deps/includes/glm; sourceTree = "<group>"; };
 		CC8F3F151D63664B003F80C0 /* imgui */ = {isa = PBXFileReference; lastKnownFileType = folder; name = imgui; path = ../deps/includes/imgui; sourceTree = "<group>"; };
@@ -86,7 +94,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC611D731D73876200144926 /* libMrEngine.a in Frameworks */,
+				CC611E7D1D7783B700144926 /* libMrEngine.a in Frameworks */,
+				CC611E751D7780C700144926 /* libboost_system.dylib in Frameworks */,
+				CC611E761D7780C700144926 /* libboost_filesystem.dylib in Frameworks */,
 				CC990C281D60C2F4004FAFA9 /* libBox2D.a in Frameworks */,
 				CC9BA5641D5A2A5D00EF149F /* SDL2_ttf.framework in Frameworks */,
 				CC9BA5441D58164100EF149F /* OpenGL.framework in Frameworks */,
@@ -110,8 +120,8 @@
 		CC8F3F101D636639003F80C0 /* includes */ = {
 			isa = PBXGroup;
 			children = (
+				CC611E791D77816A00144926 /* boost */,
 				CC8F3F111D63664B003F80C0 /* Box2D */,
-				CC8F3F121D63664B003F80C0 /* CEGUI */,
 				CC8F3F131D63664B003F80C0 /* Frameworks */,
 				CC8F3F141D63664B003F80C0 /* glm */,
 				CC8F3F151D63664B003F80C0 /* imgui */,
@@ -135,11 +145,14 @@
 		CC9BA50E1D57ADC300EF149F = {
 			isa = PBXGroup;
 			children = (
+				CC611E711D7780C700144926 /* libboost_system.dylib */,
+				CC611E721D7780C700144926 /* libboost_filesystem.dylib */,
+				CC611E731D7780C700144926 /* libboost_system.a */,
+				CC611E741D7780C700144926 /* libboost_filesystem.a */,
 				CC611D721D73876200144926 /* libMrEngine.a */,
 				CC8F40931D63692E003F80C0 /* imgui */,
 				CC8F3F101D636639003F80C0 /* includes */,
 				CC8F3EFC1D623443003F80C0 /* Assets */,
-				CC8F3E021D620CAD003F80C0 /* libMisterEngineLib.a */,
 				CC9BA5D01D5D50D000EF149F /* libBox2D.a */,
 				CC9BA5421D58163800EF149F /* SDL2_ttf.framework */,
 				CC9BA5381D5813E300EF149F /* OpenGL.framework */,
@@ -160,6 +173,8 @@
 		CC9BA5191D57ADC300EF149F /* NinjaPlatformer */ = {
 			isa = PBXGroup;
 			children = (
+				CC611E7A1D77821800144926 /* LevelReaderWriter.cpp */,
+				CC611E7B1D77821800144926 /* LevelReaderWriter.hpp */,
 				CCE0078C1D64160600611E69 /* App.cpp */,
 				CCE0078D1D64160600611E69 /* App.hpp */,
 				CCE0078E1D64160600611E69 /* Box.cpp */,
@@ -248,6 +263,7 @@
 				CCE007A11D64163E00611E69 /* GameplayScreen.cpp in Sources */,
 				CCE007A21D64163E00611E69 /* main.cpp in Sources */,
 				CCB4E1C91D6E2BAC0006DB62 /* EditorScreen.cpp in Sources */,
+				CC611E7C1D77821800144926 /* LevelReaderWriter.cpp in Sources */,
 				CCE007A31D64163E00611E69 /* Player.cpp in Sources */,
 				CC7EBE091D64E93200DF36A9 /* imgui_demo.cpp in Sources */,
 				CCB4E1C21D68D5BE0006DB62 /* PauseMenu.cpp in Sources */,
@@ -347,10 +363,13 @@
 				DEAD_CODE_STRIPPING = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../deps/includes";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../deps/lib/Debug";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../deps/lib/Debug",
+					"$(SRCROOT)/../deps/lib/boost",
+				);
 				MACH_O_TYPE = mh_execute;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../MisterEngineLib/MrEngine $(SRCROOT)/../deps/includes";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../MrEngineLib/MrEngine $(SRCROOT)/../deps/includes";
 			};
 			name = Debug;
 		};
@@ -363,11 +382,14 @@
 				DEAD_CODE_STRIPPING = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../deps/includes";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../deps/lib/Release";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../deps/lib/Release",
+					"$(SRCROOT)/../deps/lib/boost",
+				);
 				MACH_O_TYPE = mh_execute;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../MisterEngineLib/MrEngine $(SRCROOT)/../deps/includes";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../MrEngineLib/MrEngine $(SRCROOT)/../deps/includes";
 			};
 			name = Release;
 		};

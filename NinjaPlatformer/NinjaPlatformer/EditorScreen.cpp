@@ -10,6 +10,10 @@
 
 #include <IMainGame.hpp>
 #include <ResourceManager.hpp>
+#include <IOManager.hpp>
+#include <LevelReaderWriter.hpp>
+
+const b2Vec2 GRAVITY(0.0f, -6.0f);
 
 EditorScreen::EditorScreen(MrEngine::Window* window) : m_window(window)
 {
@@ -70,18 +74,24 @@ void EditorScreen::onEntry()
     m_lightProgram.linkShaders();
     
     //initialize world physics
-    b2Vec2 gravity(0.0f, -6.0f);
-    m_world = std::make_unique<b2World>(gravity);
+    m_world = std::make_unique<b2World>(GRAVITY);
 }
 
 void EditorScreen::onExit()
 {
+    
+    m_saveItems.clear();
+    m_loadItems.clear();
+    
     m_debugRenderer.dispose();
     m_textureProgram.dispose();
     m_lightProgram.dispose();
+    m_spriteBatch.dispose();
     m_world.reset();
     m_boxes.clear();
     m_lights.clear();
+    
+    clearLevel();
     
     //stop the world from updating
     m_active = false;
@@ -193,7 +203,7 @@ void EditorScreen::drawUI()
     
     if (m_menuGUI.displayed)
     {
-        ImGui::SetNextWindowSize(ImVec2(m_window->getScreenWidth() / 2.25f, m_window->getScreenHeight() / 2.5), ImGuiSetCond_Always);
+        ImGui::SetNextWindowSize(ImVec2(m_window->getScreenWidth() / 2.35f, m_window->getScreenHeight() / 2.20), ImGuiSetCond_Always);
         ImGui::SetNextWindowPos(ImVec2(0, 0), ImGuiSetCond_Always);
         
         ImGui::Begin("Game Editor", &alwaysTrue);
@@ -454,6 +464,32 @@ void EditorScreen::drawUI()
             ImGui::PopStyleColor(3);
             ImGui::PopID();
             ImGui::Spacing();ImGui::Spacing();
+            
+            //Pause button
+            ImGui::PushID(13);
+            ImGui::PushStyleColor(ImGuiCol_Button, ImColor(0.0f, 0.0f, 0.0f));
+            ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImColor::HSV(0.95f, 0.7f, 0.7f));
+            ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImColor::HSV(0.95f, 0.9f, 0.9f));
+            if (ImGui::Button("SAVE"))
+            {
+                saveClicked();
+            }
+            ImGui::PopStyleColor(3);
+            ImGui::PopID();
+            ImGui::SameLine();
+            
+            //Reset button
+            ImGui::PushID(11);
+            ImGui::PushStyleColor(ImGuiCol_Button, ImColor(0.0f, 0.0f, 0.0f));
+            ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImColor::HSV(0.1f, 0.7f, 0.7f));
+            ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImColor::HSV(0.1f, 0.9f, 0.9f));
+            if (ImGui::Button("LOAD"))
+            {
+                loadClicked();
+            }
+            ImGui::PopStyleColor(3);
+            ImGui::PopID();
+            ImGui::Spacing();
         }
         
         if (ImGui::CollapsingHeader("Help"))
@@ -461,7 +497,7 @@ void EditorScreen::drawUI()
             ImGui::Text("User Guide:\n");
             
             ImGui::Text("Hello! Welcome to my very first editor screen.");
-            ImGui::BulletText("Create an object by selecting either Player, Platform, or Light.");
+            ImGui::BulletText("Create an object by selecting either Player, Platform, or Light.\nLeft click to place object.");
             ImGui::BulletText("Platforms can either be Dynamic (able to move) or Rigid (immovable).");
             ImGui::BulletText("Customize each object's color with the color sliders.");
             ImGui::BulletText("Place an object by clicking 'Place'");
@@ -474,12 +510,13 @@ void EditorScreen::drawUI()
                               "- Red outline means Static object"
                               );
             ImGui::BulletText("Press PLAY/PAUSE to play/pause your created level.");
-            ImGui::BulletText("Press RESET to reset your current level.");
+            //ImGui::BulletText("Press RESET to reset your current level.");
+            ImGui::BulletText("Press 'SAVE' to save the current state of your level");
+            ImGui::BulletText("Press 'LOAD' to load your last save state.");
         }
         
         if (ImGui::CollapsingHeader("Exit"))
         {
-            if (ImGui::Button("Save")) { endGUI(); startGameClicked(); /*saveState() */ return; }
             if (ImGui::Button("Start Game")) { endGUI(); startGameClicked(); return; }
             if (ImGui::Button("Main Menu")) { endGUI(); mainMenuClicked(); return; }
         }
@@ -583,6 +620,14 @@ void EditorScreen::drawWorld()
     }
 }
 
+void EditorScreen::clearLevel() {
+    m_boxes.clear();
+    m_lights.clear();
+    m_grabbedPlayer = false;
+    m_world.reset();
+    m_world = std::make_unique<b2World>(GRAVITY);
+}
+
 void EditorScreen::checkInput()
 {
     SDL_Event event;
@@ -609,7 +654,10 @@ void EditorScreen::checkInput()
                 break;
                 
             case SDL_MOUSEWHEEL:
-                m_camera.offsetScale(m_camera.getScale() * event.wheel.y * 0.1f);
+                if (!isMouseOnMenu())
+                {
+                    m_camera.offsetScale(m_camera.getScale() * event.wheel.y * 0.1f);
+                }
                 break;
         }
     }
@@ -825,7 +873,7 @@ void EditorScreen::mouseMotionEvent(const SDL_Event &event)
         //player
         if (m_playerCreated)
         {
-            
+            //todo: drag player functionality
         }
     }
 }
@@ -876,7 +924,7 @@ bool EditorScreen::isMouseOnMenu()
 {
     ImGuiIO& io = ImGui::GetIO();
     
-    return (io.MousePos.x < m_window->getScreenWidth() / 2.25 && io.MousePos.y < m_window->getScreenHeight() / 2.5);
+    return (io.MousePos.x < m_window->getScreenWidth() / 2.35 && io.MousePos.y < m_window->getScreenHeight() / 2.2);
 }
 
 void EditorScreen::endGUI()
@@ -894,6 +942,51 @@ void EditorScreen::startGameClicked()
 void EditorScreen::mainMenuClicked()
 {
     m_currentScreenState = MrEngine::ScreenState::CHANGE_PREVIOUS;
+}
+
+bool EditorScreen::saveClicked()
+{
+    //can only save if we've created a player
+    if (!m_playerCreated)
+    {
+        std::cout << "Must create Player before saving!\n"; ///< make this a popup assert
+        return true;
+    }
+    
+    std::cout << "Saving...\n";
+    
+    //first we create the directory
+    if (MrEngine::IOManager::makeDirectory("Levels"))
+    {
+        std::cout << "successfully created directory\n";
+    }
+
+    if (LevelReaderWriter::saveAsText("Levels/level_1", m_player, m_boxes, m_lights))
+    {
+        puts("File successfully saved.");
+    }
+    else
+    {
+        puts("Failed to save file.");
+    }
+    return true;
+}
+
+bool EditorScreen::loadClicked()
+{
+    std::cout << "Loading...\n";
+    clearLevel();
+    
+    if (LevelReaderWriter::loadAsText("Levels/level_1", m_world.get(), m_player, m_boxes, m_lights))
+    {
+        std::cout << "Successfully loaded game\n";
+        m_playerCreated = true;
+    }
+    else
+    {
+        std::cout << "Failed to load game\n";
+    }
+    return true;
 }
 
 void EditorScreen::exitClicked()
