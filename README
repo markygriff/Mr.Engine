@@ -3,20 +3,21 @@ Mark Griffith.
 This is a very basic (for now) 2D game engine I have created using C/C++, OpenGL and SDL2.
 It includes classes for:
   - Custom SDL Window creation (Window)
-  - Loading png sprites and rendering them using shaders (GLSLProgram)
+  - Loading png sprites and rendering them using vertex/fragment shaders (GLSLProgram)
   - Creating sprite batches for efficient sprite rendering (SpriteBatch)
   - Rendering fonts (SpriteFont)
   - Handling user input (InputManager)
   - Controlling the game world camera (Camera2D)
   - Calculating and limiting the fps (Timing)
-  - Controlling the main game using a game interface (IMainGame, IGameScreen)
+  - Controlling the main game using a game interface (IMainGame, IGameScreen, ScreenList)
   - Simple debug rendering for outlining simple shapes (DebugRenderer)
   - Easy to set up and use User Interfaces using ImGui --> https://github.com/ocornut/imgui (GUI)
 
-A sample game (NinjaPlatformer) is provided which used Mr.Engine to create a mini game and a level editor
-  - Note: the level editor is unfinished, as you can't actually save your levels. Working on it!
+A sample game (NinjaPlatformer) is provided which uses Mr.Engine to create a mini game and a level editor
+  - Note: the level editor is unfinished, but has the ability to save a level and load it. 
+  - todo: save and load game data using binary rather than text format. 
 
 BUILDING (OSX only) :
   - Open MisterEngineLib.xcodeproj
-  - Be sure to build this project in both Debug and Release mode
+  - Build this project in both Debug and Release mode
   - Test by running NinjaPlatformer.xcodeproj in release mode
