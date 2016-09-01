@@ -77,6 +77,8 @@ public:
     
 private:
     void drawUI();
+    void showSaveMenu(bool* open);
+    void showLoadMenu(bool* open);
     void drawWorld();
     void clearLevel();
     
@@ -100,7 +102,9 @@ private:
     void startGameClicked();
     void mainMenuClicked();
     bool saveClicked();
+    bool saveLevel(std::string saveItem);
     bool loadClicked();
+    bool loadLevel(std::string levelPath);
     void exitClicked();
     
     int m_nextScreenIndex = SCREEN_INDEX_GAMEPLAY;
@@ -125,6 +129,8 @@ private:
     bool m_isDragging = false;
     bool m_deleteSelect = false;
     bool m_active = false;
+    bool m_saveMenu = false;
+    bool m_loadMenu = false;
     
     Player m_player;
     

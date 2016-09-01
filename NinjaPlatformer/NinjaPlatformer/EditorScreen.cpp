@@ -418,21 +418,8 @@ void EditorScreen::drawUI()
             ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImColor::HSV(1.0f, 0.9f, 0.9f));
             if (ImGui::Button("PLAY"))
             {
-                //check if there is a player character to play with
-                if (!m_playerCreated)
-                {
-                    //todo: add an assert to remind user to place a player entity
-                }
-                else
-                {
-                    if (!m_active)
-                    {
-                        //back up current level state
-                    }
-                    
-                    //set game to active
-                    m_active = true;
-                }
+                //set game to active
+                m_active = true;
             }
             ImGui::PopStyleColor(3);
             ImGui::PopID();
@@ -465,31 +452,31 @@ void EditorScreen::drawUI()
             ImGui::PopID();
             ImGui::Spacing();ImGui::Spacing();
             
-            //Pause button
+            //Save button
             ImGui::PushID(13);
             ImGui::PushStyleColor(ImGuiCol_Button, ImColor(0.0f, 0.0f, 0.0f));
             ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImColor::HSV(0.95f, 0.7f, 0.7f));
             ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImColor::HSV(0.95f, 0.9f, 0.9f));
-            if (ImGui::Button("SAVE"))
-            {
-                saveClicked();
-            }
+            if (ImGui::Button("SAVE")) m_saveMenu = true; saveClicked();
             ImGui::PopStyleColor(3);
             ImGui::PopID();
             ImGui::SameLine();
             
-            //Reset button
+            //Load button
             ImGui::PushID(11);
             ImGui::PushStyleColor(ImGuiCol_Button, ImColor(0.0f, 0.0f, 0.0f));
             ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImColor::HSV(0.1f, 0.7f, 0.7f));
             ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImColor::HSV(0.1f, 0.9f, 0.9f));
-            if (ImGui::Button("LOAD"))
-            {
-                loadClicked();
-            }
+            if (ImGui::Button("LOAD")) { m_loadMenu = true; loadClicked(); }
             ImGui::PopStyleColor(3);
             ImGui::PopID();
             ImGui::Spacing();
+            
+            //save pop-up menu
+            if (m_saveMenu) showSaveMenu(&m_saveMenu);
+            
+            //load pop-up menu
+            if (m_loadMenu) showLoadMenu(&m_loadMenu);
         }
         
         if (ImGui::CollapsingHeader("Help"))
@@ -532,6 +519,89 @@ void EditorScreen::drawUI()
     glViewport(0, 0, io.DisplaySize.x, io.DisplaySize.y);
     
     ImGui::Render(); ///< calls set renderdrawlists function
+}
+
+void EditorScreen::showSaveMenu(bool* open)
+{
+    //Draw the menu
+    ImGui::SetNextWindowSize(ImVec2(300, 220), ImGuiSetCond_Always);
+    if (ImGui::Begin("Load Menu", open, ImGuiWindowFlags_MenuBar))
+    {
+        if (ImGui::BeginMenuBar())
+        {
+            if (ImGui::BeginMenu("File"))
+            {
+                if (ImGui::MenuItem("Close")) *open = false;
+                ImGui::EndMenu();
+            }
+            ImGui::EndMenuBar();
+        }
+        
+        //left
+        static std::string levelPath;
+        
+        ImGui::TextWrapped("What would you like to name this level?");
+        
+        static char buf1[64] = ""; ImGui::InputText("default", buf1, 64);
+        
+        levelPath = buf1;
+        
+        ImGui::TextWrapped("LevelPath: %s", levelPath.c_str());
+        ImGui::TextWrapped("Press the Save button below to save the current level");
+        
+        if (ImGui::Button("Save")) { saveLevel(levelPath); *open = false; }
+    }
+    ImGui::End();
+}
+
+void EditorScreen::showLoadMenu(bool* open)
+{
+    //Draw the menu
+    ImGui::SetNextWindowSize(ImVec2(300, 220), ImGuiSetCond_Always);
+    if (ImGui::Begin("Load Menu", open, ImGuiWindowFlags_MenuBar))
+    {
+        if (ImGui::BeginMenuBar())
+        {
+            if (ImGui::BeginMenu("File"))
+            {
+                if (ImGui::MenuItem("Close")) *open = false;
+                ImGui::EndMenu();
+            }
+            ImGui::EndMenuBar();
+        }
+        
+        // left
+        static int selected = 0;
+        static std::string levelPath;
+        ImGui::BeginChild("left pane", ImVec2(150, 0), true);
+        for (int i = 0; i < m_loadItems.size(); i++)
+        {
+            char label[128];
+            sprintf(label, "%s", m_loadItems[i].c_str());
+            if (ImGui::Selectable(label, selected == i))
+            {
+                selected = i;
+                levelPath = m_loadItems[i];
+            }
+        }
+        ImGui::EndChild();
+        ImGui::SameLine();
+        
+        // right
+        ImGui::BeginGroup();
+        ImGui::BeginChild("item view", ImVec2(0, -ImGui::GetItemsLineHeightWithSpacing())); // Leave room for 1 line below us
+        ImGui::Text("Load Level: %s?", levelPath.c_str());
+        ImGui::Separator();
+        ImGui::TextWrapped("Press the Load button below to load the selected level");
+        ImGui::EndChild();
+        
+        ImGui::BeginChild("buttons");
+        if (ImGui::Button("Load")) { loadLevel(levelPath); *open = false; }
+        ImGui::EndChild();
+        
+        ImGui::EndGroup();
+    }
+    ImGui::End();
 }
 
 void EditorScreen::drawWorld()
@@ -946,6 +1016,11 @@ void EditorScreen::mainMenuClicked()
 
 bool EditorScreen::saveClicked()
 {
+    return true;
+}
+
+bool EditorScreen::saveLevel(std::string saveItem)
+{
     //can only save if we've created a player
     if (!m_playerCreated)
     {
@@ -956,12 +1031,11 @@ bool EditorScreen::saveClicked()
     std::cout << "Saving...\n";
     
     //first we create the directory
-    if (MrEngine::IOManager::makeDirectory("Levels"))
-    {
-        std::cout << "successfully created directory\n";
-    }
+    MrEngine::IOManager::makeDirectory("Levels");
+    
+    std::string saveFile = "Levels/" + saveItem;
 
-    if (LevelReaderWriter::saveAsText("Levels/level_1", m_player, m_boxes, m_lights))
+    if (LevelReaderWriter::saveAsText(saveFile, m_player, m_boxes, m_lights))
     {
         puts("File successfully saved.");
     }
@@ -974,10 +1048,32 @@ bool EditorScreen::saveClicked()
 
 bool EditorScreen::loadClicked()
 {
+    m_loadItems.clear();
+    
+    //get all directory entries
+    std::vector<MrEngine::DirEntry> entries;
+    MrEngine::IOManager::getDirectoryEntries("Levels", entries);
+    
+    // Add all files to list box
+    for (auto& e : entries) {
+        // Don't add directories
+        if (!e.isDirectory) {
+            // Remove "Levels/" substring
+            e.path.erase(0, std::string("Levels/").size());
+            m_loadItems.push_back(e.path);
+        }
+    }
+    return true;
+}
+
+bool EditorScreen::loadLevel(std::string loadItem)
+{
     std::cout << "Loading...\n";
     clearLevel();
     
-    if (LevelReaderWriter::loadAsText("Levels/level_1", m_world.get(), m_player, m_boxes, m_lights))
+    std::string level = "Levels/" + loadItem;
+    
+    if (LevelReaderWriter::loadAsText(level, m_world.get(), m_player, m_boxes, m_lights))
     {
         std::cout << "Successfully loaded game\n";
         m_playerCreated = true;
