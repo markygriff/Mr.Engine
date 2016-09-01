@@ -11,11 +11,11 @@
 		CC611E761D7780C700144926 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E721D7780C700144926 /* libboost_filesystem.dylib */; };
 		CC611E7C1D77821800144926 /* LevelReaderWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC611E7A1D77821800144926 /* LevelReaderWriter.cpp */; };
 		CC611E7D1D7783B700144926 /* libMrEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611D721D73876200144926 /* libMrEngine.a */; };
+		CC611E821D77B28200144926 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9BA5361D5813DA00EF149F /* SDL2.framework */; };
+		CC611E831D77B28200144926 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9BA5421D58163800EF149F /* SDL2_ttf.framework */; };
 		CC7EBE091D64E93200DF36A9 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC7EBE081D64E93200DF36A9 /* imgui_demo.cpp */; };
 		CC990C281D60C2F4004FAFA9 /* libBox2D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9BA5D01D5D50D000EF149F /* libBox2D.a */; };
-		CC9BA5411D58163200EF149F /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9BA5361D5813DA00EF149F /* SDL2.framework */; };
 		CC9BA5441D58164100EF149F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9BA5381D5813E300EF149F /* OpenGL.framework */; };
-		CC9BA5641D5A2A5D00EF149F /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9BA5421D58163800EF149F /* SDL2_ttf.framework */; };
 		CCB4E1C21D68D5BE0006DB62 /* PauseMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CCB4E1C01D68D5BE0006DB62 /* PauseMenu.cpp */; };
 		CCB4E1C51D6DE6E70006DB62 /* MainMenuScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CCB4E1C31D6DE6E70006DB62 /* MainMenuScreen.cpp */; };
 		CCB4E1C91D6E2BAC0006DB62 /* EditorScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CCB4E1C71D6E2BAC0006DB62 /* EditorScreen.cpp */; };
@@ -94,13 +94,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC611E821D77B28200144926 /* SDL2.framework in Frameworks */,
+				CC611E831D77B28200144926 /* SDL2_ttf.framework in Frameworks */,
 				CC611E7D1D7783B700144926 /* libMrEngine.a in Frameworks */,
 				CC611E751D7780C700144926 /* libboost_system.dylib in Frameworks */,
 				CC611E761D7780C700144926 /* libboost_filesystem.dylib in Frameworks */,
 				CC990C281D60C2F4004FAFA9 /* libBox2D.a in Frameworks */,
-				CC9BA5641D5A2A5D00EF149F /* SDL2_ttf.framework in Frameworks */,
 				CC9BA5441D58164100EF149F /* OpenGL.framework in Frameworks */,
-				CC9BA5411D58163200EF149F /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
