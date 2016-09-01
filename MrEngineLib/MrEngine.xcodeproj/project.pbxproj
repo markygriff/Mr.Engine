@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC611E801D77B1F300144926 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E7E1D77B1F300144926 /* SDL2.framework */; };
-		CC611E811D77B1F300144926 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E7F1D77B1F300144926 /* SDL2_ttf.framework */; };
-		CC611E851D77B29200144926 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E841D77B29200144926 /* OpenGL.framework */; };
+		CC611E921D77B52000144926 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E8E1D77B52000144926 /* SDL2.framework */; };
+		CC611E931D77B52000144926 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E8F1D77B52000144926 /* SDL2_ttf.framework */; };
+		CC611E941D77B52000144926 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E901D77B52000144926 /* SDL2_mixer.framework */; };
+		CC611E951D77B52000144926 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E911D77B52000144926 /* OpenGL.framework */; };
 		CC8F3E071D620D8F003F80C0 /* GUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC8F3E051D620D8F003F80C0 /* GUI.cpp */; };
 		CC8F3E081D620D8F003F80C0 /* GUI.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC8F3E061D620D8F003F80C0 /* GUI.hpp */; };
 		CC9BA57E1D5BB71400EF149F /* AudioEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA5691D5BB71400EF149F /* AudioEngine.cpp */; };
@@ -64,6 +65,10 @@
 		CC611E7E1D77B1F300144926 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = System/Library/Frameworks/SDL2.framework; sourceTree = SDKROOT; };
 		CC611E7F1D77B1F300144926 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = System/Library/Frameworks/SDL2_ttf.framework; sourceTree = SDKROOT; };
 		CC611E841D77B29200144926 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		CC611E8E1D77B52000144926 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../deps/includes/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		CC611E8F1D77B52000144926 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../deps/includes/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
+		CC611E901D77B52000144926 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = ../deps/includes/Frameworks/SDL2_mixer.framework; sourceTree = "<group>"; };
+		CC611E911D77B52000144926 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../deps/includes/Frameworks/OpenGL.framework; sourceTree = "<group>"; };
 		CC8AECA01D3DA6AE00B20AFA /* libMisterEngineLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMisterEngineLib.a; path = libMrEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8F3E051D620D8F003F80C0 /* GUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GUI.cpp; path = MrEngine/GUI.cpp; sourceTree = "<group>"; };
 		CC8F3E061D620D8F003F80C0 /* GUI.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GUI.hpp; path = MrEngine/GUI.hpp; sourceTree = "<group>"; };
@@ -126,9 +131,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC611E851D77B29200144926 /* OpenGL.framework in Frameworks */,
-				CC611E801D77B1F300144926 /* SDL2.framework in Frameworks */,
-				CC611E811D77B1F300144926 /* SDL2_ttf.framework in Frameworks */,
+				CC611E921D77B52000144926 /* SDL2.framework in Frameworks */,
+				CC611E931D77B52000144926 /* SDL2_ttf.framework in Frameworks */,
+				CC611E941D77B52000144926 /* SDL2_mixer.framework in Frameworks */,
+				CC611E951D77B52000144926 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +144,10 @@
 		CC8AEC971D3DA6AE00B20AFA = {
 			isa = PBXGroup;
 			children = (
+				CC611E8E1D77B52000144926 /* SDL2.framework */,
+				CC611E8F1D77B52000144926 /* SDL2_ttf.framework */,
+				CC611E901D77B52000144926 /* SDL2_mixer.framework */,
+				CC611E911D77B52000144926 /* OpenGL.framework */,
 				CC611E841D77B29200144926 /* OpenGL.framework */,
 				CC611E7E1D77B1F300144926 /* SDL2.framework */,
 				CC611E7F1D77B1F300144926 /* SDL2_ttf.framework */,
@@ -427,6 +437,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(SRCROOT)/../deps/includes/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../deps/includes";
 				LIBRARY_SEARCH_PATHS = "";
@@ -447,6 +458,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(SRCROOT)/../deps/includes/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../deps/includes";
 				LIBRARY_SEARCH_PATHS = "";

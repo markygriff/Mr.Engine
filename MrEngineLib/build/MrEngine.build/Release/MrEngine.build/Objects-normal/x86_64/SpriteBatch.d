@@ -2,6 +2,8 @@ dependencies: \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/SpriteBatch.cpp \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/SpriteBatch.hpp \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/Vertex.h \
+  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/OpenGL.framework/Headers/gl3.h \
+  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/OpenGL.framework/Headers/gltypes.h \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/glm/glm.hpp \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/glm/detail/_fixes.hpp \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/glm/fwd.hpp \

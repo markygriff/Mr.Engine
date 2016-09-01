@@ -2,6 +2,8 @@ dependencies: \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/DebugRenderer.cpp \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/DebugRenderer.hpp \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/Vertex.h \
+  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/OpenGL.framework/Headers/gl3.h \
+  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/OpenGL.framework/Headers/gltypes.h \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/GLSLProgram.hpp \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/glm/glm.hpp \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/glm/detail/_fixes.hpp \

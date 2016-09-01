@@ -45,4 +45,6 @@ dependencies: \
   /Library/Frameworks/SDL2.framework/Headers/SDL_system.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_timer.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_version.h \
+  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/OpenGL.framework/Headers/gl3.h \
+  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/OpenGL.framework/Headers/gltypes.h \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/FatalError.hpp

@@ -121,4 +121,6 @@ dependencies: \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/glm/detail/func_integer.hpp \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/glm/detail/func_integer.inl \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/Vertex.h \
+  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/OpenGL.framework/Headers/gl3.h \
+  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/OpenGL.framework/Headers/gltypes.h \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/SpriteBatch.hpp

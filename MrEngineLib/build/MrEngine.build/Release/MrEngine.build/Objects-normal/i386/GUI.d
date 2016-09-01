@@ -120,6 +120,8 @@ dependencies: /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/GUI.cpp \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/glm/detail/func_integer.hpp \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/glm/detail/func_integer.inl \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/Window.hpp \
+  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/OpenGL.framework/Headers/gl3.h \
+  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/OpenGL.framework/Headers/gltypes.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_syswm.h \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/imgui/imgui.h \
   /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/imgui/imconfig.h
