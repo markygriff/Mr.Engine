@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/GLSLProgram.cpp \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/GLSLProgram.hpp \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/FatalError.hpp \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/IOManager.hpp
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/GLSLProgram.cpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/GLSLProgram.hpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/FatalError.hpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/IOManager.hpp

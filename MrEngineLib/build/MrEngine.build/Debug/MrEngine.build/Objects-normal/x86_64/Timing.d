@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/Timing.cpp \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/Timing.hpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/Timing.cpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/Timing.hpp \
   /Library/Frameworks/SDL2.framework/Headers/SDL.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_main.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_stdinc.h \

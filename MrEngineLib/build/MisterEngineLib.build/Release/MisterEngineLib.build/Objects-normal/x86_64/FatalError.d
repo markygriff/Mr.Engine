@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/Marky/GitHub/Mr.Engine/MisterEngineLib/MrEngine/FatalError.cpp \
-  /Users/Marky/GitHub/Mr.Engine/MisterEngineLib/MrEngine/FatalError.hpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/FatalError.cpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/FatalError.hpp \
   /Library/Frameworks/SDL2.framework/Headers/SDL.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_main.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_stdinc.h \

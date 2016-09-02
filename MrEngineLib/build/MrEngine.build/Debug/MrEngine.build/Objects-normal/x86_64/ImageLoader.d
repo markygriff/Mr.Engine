@@ -1,7 +1,7 @@
 dependencies: \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/ImageLoader.cpp \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/ImageLoader.hpp \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/GLTexture.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/picoPNG.hpp \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/IOManager.hpp \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/FatalError.hpp
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/ImageLoader.cpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/ImageLoader.hpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/GLTexture.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/picoPNG.hpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/IOManager.hpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/FatalError.hpp

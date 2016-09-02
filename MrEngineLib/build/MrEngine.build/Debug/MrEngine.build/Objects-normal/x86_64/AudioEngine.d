@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/AudioEngine.cpp \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/AudioEngine.hpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/AudioEngine.cpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/AudioEngine.hpp \
   /Library/Frameworks/SDL2_mixer.framework/Headers/SDL_mixer.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_stdinc.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_config.h \
@@ -16,4 +16,4 @@ dependencies: \
   /Library/Frameworks/SDL2.framework/Headers/SDL_thread.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_atomic.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_version.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/FatalError.hpp
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MisterEngineLib/MrEngine/FatalError.hpp
