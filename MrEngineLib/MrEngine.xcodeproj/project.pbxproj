@@ -11,6 +11,8 @@
 		CC611E931D77B52000144926 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E8F1D77B52000144926 /* SDL2_ttf.framework */; };
 		CC611E941D77B52000144926 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E901D77B52000144926 /* SDL2_mixer.framework */; };
 		CC611E951D77B52000144926 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E911D77B52000144926 /* OpenGL.framework */; };
+		CC611EB01D79049100144926 /* SpriteSheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC611EAE1D79049100144926 /* SpriteSheet.cpp */; };
+		CC611EB11D79049100144926 /* SpriteSheet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC611EAF1D79049100144926 /* SpriteSheet.hpp */; };
 		CC8F3E071D620D8F003F80C0 /* GUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC8F3E051D620D8F003F80C0 /* GUI.cpp */; };
 		CC8F3E081D620D8F003F80C0 /* GUI.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CC8F3E061D620D8F003F80C0 /* GUI.hpp */; };
 		CC9BA57E1D5BB71400EF149F /* AudioEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC9BA5691D5BB71400EF149F /* AudioEngine.cpp */; };
@@ -69,6 +71,8 @@
 		CC611E8F1D77B52000144926 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../deps/includes/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
 		CC611E901D77B52000144926 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = ../deps/includes/Frameworks/SDL2_mixer.framework; sourceTree = "<group>"; };
 		CC611E911D77B52000144926 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../deps/includes/Frameworks/OpenGL.framework; sourceTree = "<group>"; };
+		CC611EAE1D79049100144926 /* SpriteSheet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpriteSheet.cpp; path = MrEngine/SpriteSheet.cpp; sourceTree = "<group>"; };
+		CC611EAF1D79049100144926 /* SpriteSheet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SpriteSheet.hpp; path = MrEngine/SpriteSheet.hpp; sourceTree = "<group>"; };
 		CC8AECA01D3DA6AE00B20AFA /* libMisterEngineLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMisterEngineLib.a; path = libMrEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8F3E051D620D8F003F80C0 /* GUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GUI.cpp; path = MrEngine/GUI.cpp; sourceTree = "<group>"; };
 		CC8F3E061D620D8F003F80C0 /* GUI.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GUI.hpp; path = MrEngine/GUI.hpp; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 				CC9BA5791D5BB71400EF149F /* SpriteBatch.cpp */,
 				CC9BA5A51D5BB74400EF149F /* SpriteBatch.hpp */,
 				CC9BA57A1D5BB71400EF149F /* SpriteFont.cpp */,
+				CC611EAE1D79049100144926 /* SpriteSheet.cpp */,
+				CC611EAF1D79049100144926 /* SpriteSheet.hpp */,
 				CC9BA57B1D5BB71400EF149F /* TextureCache.cpp */,
 				CC9BA57C1D5BB71400EF149F /* Timing.cpp */,
 				CC9BA57D1D5BB71400EF149F /* Window.cpp */,
@@ -247,6 +253,7 @@
 				CC9BA5B81D5BB74400EF149F /* ParticleBatch2D.hpp in Headers */,
 				CC9BA5B91D5BB74400EF149F /* ParticleEngine2D.hpp in Headers */,
 				CC8F3E081D620D8F003F80C0 /* GUI.hpp in Headers */,
+				CC611EB11D79049100144926 /* SpriteSheet.hpp in Headers */,
 				CC9BA5BA1D5BB74400EF149F /* picoPNG.hpp in Headers */,
 				CC9BA5BB1D5BB74400EF149F /* ResourceManager.hpp in Headers */,
 				CC9BA5BC1D5BB74400EF149F /* ScreenList.hpp in Headers */,
@@ -325,6 +332,7 @@
 				CC9BA5831D5BB71400EF149F /* ImageLoader.cpp in Sources */,
 				CC9BA5841D5BB71400EF149F /* IMainGame.cpp in Sources */,
 				CC9BA5851D5BB71400EF149F /* InputManager.cpp in Sources */,
+				CC611EB01D79049100144926 /* SpriteSheet.cpp in Sources */,
 				CC9BA5861D5BB71400EF149F /* IOManager.cpp in Sources */,
 				CC9BA5871D5BB71400EF149F /* MrEngine.cpp in Sources */,
 				CC9BA5881D5BB71400EF149F /* ParticleBatch2D.cpp in Sources */,
