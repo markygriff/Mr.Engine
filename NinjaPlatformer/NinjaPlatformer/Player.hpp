@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <InputManager.hpp>
 #include <TileSheet.h>
+#include <SpriteSheet.hpp>
 
 
 enum class PlayerMoveState {STANDING, RUNNING, PUNCHING, IN_AIR};
@@ -45,13 +46,13 @@ public:
     const glm::vec2& getCollisionDims() const { return m_collisionDims; }
     const MrEngine::ColorRGBA8 getColor() const { return m_color; }
     glm::vec2 getPosition() const { return glm::vec2(m_capsule.getBody()->GetPosition().x, m_capsule.getBody()->GetPosition().y); }
+    bool isPunching() const { return m_isPunching; }
 
 private:
     Capsule m_capsule;
     
-    //MrEngine::GLTexture m_texture;
     MrEngine::ColorRGBA8 m_color;
-    MrEngine::TileSheet m_texture;
+    MrEngine::SpriteSheet m_texture;
     
     glm::vec2 m_drawDims;
     glm::vec2 m_collisionDims;
@@ -64,7 +65,6 @@ private:
     bool m_onGround = false;
     bool m_isPunching = false;
     
-    //MrEngine::GLTexture m_texture;
 };
 
 #endif /* Player_hpp */

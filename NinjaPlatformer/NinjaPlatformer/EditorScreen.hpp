@@ -49,7 +49,8 @@ enum class ObjectType
 enum class SelectMode
 {
     SELECT,
-    PLACE
+    PLACE,
+    MENU
 };
 
 class EditorScreen : public MrEngine::IGameScreen

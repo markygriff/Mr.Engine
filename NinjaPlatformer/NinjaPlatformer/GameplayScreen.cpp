@@ -65,7 +65,7 @@ void GameplayScreen::onEntry()
     b2BodyDef groundBodyDef;
     //define size of the box
     b2PolygonShape groundBox;
-    groundBox.SetAsBox(50.0f, 0.0f);
+    groundBox.SetAsBox(5000.0f, 0.0f);
     //set the placement of the ground in space
     groundBodyDef.position.Set(0.0f, -((m_window->getScreenHeight() / 2.0f)) / m_scale  );
     b2Body* groundBody = m_world->CreateBody(&groundBodyDef);
@@ -78,11 +78,11 @@ void GameplayScreen::onEntry()
     
     //make some random boxes
     std::mt19937 randGenerator;
-    std::uniform_real_distribution<float> xPos(-10.0f, 10.0f);
+    std::uniform_real_distribution<float> xPos(0.0f, 150.0f);
     std::uniform_real_distribution<float> yPos(0.0f, 25.0f);
     std::uniform_real_distribution<float> size(0.5f, 2.5f);
     std::uniform_int_distribution<int> randc(0, 255);
-    const int numBoxes = 300;
+    const int numBoxes = 50;
     
     //create new boxes
     for (int i = 0; i < numBoxes; i++)
@@ -117,7 +117,7 @@ void GameplayScreen::onEntry()
     //zoom out
     m_camera.setScale(m_scale); ///< pixel per meter
     //initialize player
-    m_player.init(m_world.get(), glm::vec2(0.0f, 35.0f), glm::vec2(2.0f, 2.0f), glm::vec2(1.0f, 1.8f), MrEngine::ColorRGBA8(255,255,255,255));
+    m_player.init(m_world.get(), glm::vec2(-5.0f, 25.0f), glm::vec2(2.0f, 2.0f), glm::vec2(1.0f, 1.8f), MrEngine::ColorRGBA8(255,255,255,255));
     
     //initialize gui
     m_pMenu.init(m_window, false);
@@ -322,6 +322,13 @@ void GameplayScreen::checkInput()
                 break;
             case SDL_QUIT:
                 m_currentScreenState = MrEngine::ScreenState::EXIT_APPLICATION;
+                break;
+            case SDL_MOUSEMOTION:
+                if (m_game->inputManager.isKeyDown(SDL_BUTTON_RIGHT))
+                {
+                    //set offset and USE ASPECT RATIO
+                    m_camera.offsetPosition(glm::vec2(-event.motion.xrel / 3, event.motion.yrel * m_camera.getDimRatio() / 8));
+                }
                 break;
         }
     }

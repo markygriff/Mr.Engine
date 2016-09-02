@@ -260,7 +260,7 @@ void EditorScreen::drawUI()
             ImGui::PushStyleColor(ImGuiCol_Button, ImColor::HSV(2.5/7.0f, 0.6f, 0.6f));
             ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImColor::HSV(2.5/7.0f, 0.7f, 0.7f));
             ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImColor::HSV(2.5/7.0f, 0.9f, 0.9f));
-            if (ImGui::Button("Player")) m_objectType = ObjectType::PLAYER;
+            if (ImGui::Button("Player")) { m_selectMode = SelectMode::PLACE; m_objectType = ObjectType::PLAYER; }
             ImGui::PopStyleColor(3);
             ImGui::PopID();
             ImGui::SameLine();
@@ -384,11 +384,13 @@ void EditorScreen::drawUI()
                 if (m_currentLight != NONE)
                 {
                     m_lights.erase(m_lights.begin() + m_currentLight);
+                    m_currentLight = NONE;
                 }
                 if (m_currentBox != NONE)
                 {
                     m_boxes[m_currentBox].destroy(m_world.get());
                     m_boxes.erase(m_boxes.begin() + m_currentBox);
+                    m_currentBox = NONE;
                 }
             }
             ImGui::PopStyleColor(3);
@@ -755,6 +757,7 @@ void EditorScreen::mousedownEvent(const SDL_Event &event)
             //selection mode
             if (m_selectMode == SelectMode::SELECT)
                 {
+                    std::cout << event.button.x << std::endl;
                     pos = m_camera.convertScreenToWorld(glm::vec2(event.button.x, event.button.y));
                     
                     //first we check the lights
@@ -1037,7 +1040,7 @@ bool EditorScreen::saveLevel(std::string saveItem)
 
     if (LevelReaderWriter::saveAsText(saveFile, m_player, m_boxes, m_lights))
     {
-        puts("File successfully saved.");
+        printf("File successfully saved as %s.\n", saveFile.c_str());
     }
     else
     {
@@ -1075,7 +1078,7 @@ bool EditorScreen::loadLevel(std::string loadItem)
     
     if (LevelReaderWriter::loadAsText(level, m_world.get(), m_player, m_boxes, m_lights))
     {
-        std::cout << "Successfully loaded game\n";
+        printf("Successfully loaded game %s\n", level.c_str());
         m_playerCreated = true;
     }
     else

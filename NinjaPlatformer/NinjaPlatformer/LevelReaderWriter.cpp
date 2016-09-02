@@ -10,6 +10,7 @@
 
 #include <ResourceManager.hpp>
 
+#include <iostream>
 #include <fstream>
 
 //new versions added it here
@@ -41,6 +42,7 @@ bool LevelReaderWriter::saveAsTextV0(const std::string& filePath,
     
     //write the version
     file << TEXT_VERSION << '\n';
+    
     //write player data
     file << player.getPosition().x << ' ' << player.getPosition().y << ' '
     << player.getDrawDims().x << ' ' << player.getDrawDims().y << ' '
@@ -53,6 +55,8 @@ bool LevelReaderWriter::saveAsTextV0(const std::string& filePath,
     //write all box data
     for (auto& b : boxes)
     {
+        std::cout << "Box color: red: " << b.getColor().r << " green: "<< b.getColor().g << " blue: "<< b.getColor().b << std::endl;
+        
         file << b.getPosition().x << ' ' << b.getPosition().y << ' '
         << b.getDimensions().x << ' ' << b.getDimensions().y << ' '
         << b.getColor().r << ' ' << b.getColor().g << ' '

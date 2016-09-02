@@ -36,8 +36,16 @@ void Player::init(b2World* world,
     
     m_capsule.init(world, position, collisionDims, 1.0f, 0.1f, true);
     
-    glm::ivec2 s = glm::ivec2(10.0f, 2.0f);
-    m_texture.init(texture, s);
+    //initialize player sprite sheet
+    glm::ivec2 spriteDims = glm::ivec2(10.0f, 2.0f);
+    m_texture.init(texture, spriteDims);
+    
+    m_texture.addAnimation(MrEngine::SpriteState::IDLE, 1, 0, 0.04f);
+    m_texture.addAnimation(MrEngine::SpriteState::RUNNING, 6, 10, 0.04);
+    m_texture.addAnimation(MrEngine::SpriteState::ATTACKING, 5, 1, 0.04f);
+    m_texture.addAnimation(MrEngine::SpriteState::ATTACKING_IN_AIR, 1, 18, 0.02f);
+    m_texture.addAnimation(MrEngine::SpriteState::RISING, 1, 16, 0.04f);
+    m_texture.addAnimation(MrEngine::SpriteState::FALLING, 1, 17, 0.04f);
 }
 
 void Player::draw(MrEngine::SpriteBatch& spriteBatch, float deltaTime)
@@ -50,121 +58,69 @@ void Player::draw(MrEngine::SpriteBatch& spriteBatch, float deltaTime)
     destRect.z = m_drawDims.x;
     destRect.w = m_drawDims.y;
     
-    
-    //calculate animation
-    int tileIndex;
-    int numTiles;
-    float animationSpeed = 0.04f;
     glm::vec2 velocity;
     velocity.x = body->GetLinearVelocity().x;
     velocity.y = body->GetLinearVelocity().y;
+    
+    //ANIMATION
     
     if (m_onGround)
     {
         if (m_isPunching)
         {
-            numTiles = 4;
-            tileIndex = 1;
-            
-            if (m_moveState != PlayerMoveState::PUNCHING)
-            {
-                m_moveState = PlayerMoveState::PUNCHING;
-                m_animationTime = 0.0f;
-            }
-            
+            //punching
+            if (m_texture.setAnimation(MrEngine::SpriteState::ATTACKING)) m_animationTime = 0.0f;
         }
         else if ((fabs(velocity.x) > 1.0f) && ((velocity.x > 0 && m_direction > 0 )|| (velocity.x < 0 && m_direction < 0)))
         {
             //running
-            numTiles = 6;
-            tileIndex = 10;
-            
-            //update the sprite animation speed to match the velocity of the player
-            animationSpeed = fabs(velocity.x) * 0.025f;
-            
-            if (m_moveState != PlayerMoveState::RUNNING)
-            {
-                m_moveState = PlayerMoveState::RUNNING;
-                m_animationTime = 0.0f;
-            }
+            if (m_texture.setAnimation(MrEngine::SpriteState::RUNNING)) m_animationTime = 0.0f;
         }
-        else
-        {
-            //standing on the ground
-            numTiles = 1;
-            tileIndex = 0;
-            m_moveState = PlayerMoveState::STANDING;
-        }
+        else m_texture.setAnimation(MrEngine::SpriteState::IDLE);
     }
     else
     {
         //in the air
-        
-        //kicking in air
         if (m_isPunching)
         {
-            numTiles = 1;
-            tileIndex = 18;
-            //want to last the same amount of time as the punching animation
-            animationSpeed *= 0.5f;
-            
-            if (m_moveState != PlayerMoveState::PUNCHING)
-            {
-                m_moveState = PlayerMoveState::PUNCHING;
-                m_animationTime = 0.0f;
-            }
-            
+            //kicking in air
+            if (m_texture.setAnimation(MrEngine::SpriteState::ATTACKING_IN_AIR)) m_animationTime = 0.0f;
         }
         //if we are moving fast in the air...
         else if(fabs(velocity.x) > 10.0f)
         {
             //play first animation
-            numTiles = 1;
-            tileIndex = 10;
         }
-        else if (velocity.y <= 0.0f)
-        {
-            //falling
-            numTiles = 1;
-            tileIndex = 17;
-            m_moveState = PlayerMoveState::IN_AIR;
-        }
-        else
-        {
-            //rising
-            numTiles = 1;
-            tileIndex = 16;
-            m_moveState = PlayerMoveState::IN_AIR;
-        }
+        
+        //falling
+        else if (velocity.y <= 0.0f) m_texture.setAnimation(MrEngine::SpriteState::FALLING);
+        //rising
+        else m_texture.setAnimation(MrEngine::SpriteState::RISING);
     }
+    
+    int tileIndex = m_texture.getAnimation().tileIndex;
+    int numTiles = m_texture.getAnimation().numTiles;
+    float animationSpeed = m_texture.getAnimation().animationSpeed;
     
     //increment animation time
     m_animationTime += animationSpeed;
     
     //check for punch end
-    if (m_animationTime > numTiles)
-    {
-        m_isPunching = false;
-    }
+    if (m_animationTime > numTiles) m_isPunching = false;
     
     //apply animation
     tileIndex = tileIndex + ((int)m_animationTime % numTiles);
 
-    //direction check
+    //uvRect for rendering sprite
     glm::vec4 uvRect = m_texture.getUVs(tileIndex);
-    if (m_direction == -1)
-    {
-        //move forward the sprite we're looking at
-        uvRect.x += 1.0f / m_texture.dims.x;
-        //flipbackwards the sprite we're looking at
-        uvRect.z *= -1;
-    }
     
+    //direction check
+    if (m_direction == -1) uvRect = m_texture.flipUVs(uvRect, true, false);
     
     //draw the batch of boxes
     //player sprite has 10x2 frames so each is 0.1 apart
     // uv(start_pixel_x, start_pixel_y, width_used_of_sheet, height_used_of_sheet)
-    spriteBatch.draw(destRect, uvRect, m_texture.texture.id, 0.0f, m_color, body->GetAngle());
+    spriteBatch.draw(destRect, uvRect, m_texture.getTexture().id, 0.0f, m_color, body->GetAngle());
 }
 
 void Player::drawDebug(MrEngine::DebugRenderer& debugrenderer)
@@ -204,10 +160,11 @@ void Player::update(MrEngine::InputManager& inputManager, float deltaTime)
     //check if the ground is below and touching, then we can JUMP!
     //look through all contact points
     m_onGround = false;
-    for (b2ContactEdge* ce = body->GetContactList(); ce != nullptr; ce = ce->next)
+    for (b2ContactEdge* contactEdge = body->GetContactList(); contactEdge != nullptr; contactEdge = contactEdge->next)
     {
         //check if contact point is touching anything
-        b2Contact* c = ce->contact;
+        b2Contact* c = contactEdge->contact;
+        
         if (c->IsTouching())
         {
             b2WorldManifold manifold;
@@ -215,6 +172,7 @@ void Player::update(MrEngine::InputManager& inputManager, float deltaTime)
             
             //check if touching below
             bool below = false;
+            bool right = false;
             for (int i = 0; i < b2_maxManifoldPoints; i++)
             {
                 if (manifold.points[i].y < (body->GetPosition().y - m_capsule.getDimensions().y / 2.0f + m_capsule.getDimensions().x / 2.0f - 0.1f))
@@ -222,7 +180,13 @@ void Player::update(MrEngine::InputManager& inputManager, float deltaTime)
                     below = true;
                     break;
                 }
+                if (manifold.points[i].x > (body->GetPosition().x))
+                {
+                    right = true;
+                    break;
+                }
             }
+            
             if (below)
             {
                 //jump!
