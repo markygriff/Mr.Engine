@@ -35,7 +35,6 @@ namespace MrEngine
 
     struct Animation
     {
-        //SpriteState spriteState;
         int numTiles;
         int tileIndex;
         float animationSpeed;
@@ -45,25 +44,32 @@ namespace MrEngine
     {
     public:
         void init(const GLTexture& texture, glm::ivec2& tileDims);
+        void begin(); ///< reset animation time to 0
+        void end(); ///< update animation time
+        
+        bool isAnimationFinished() { return m_animationTime > m_animations[m_currentState].numTiles; }
         
         void addAnimation(SpriteState spriteState, int numTiles, int tileIndex, float animationSpeed);
         bool setAnimation(SpriteState spriteState);
+        bool animate(int xDir, int yDir);
         
-        glm::vec4 flipUVs(glm::vec4 uvRect, bool yPlane, bool xPlane);
-        
-        glm::vec4 getUVs(int index);
+        void flipUVs(bool yPlane, bool xPlane);
+        void setUVs(int index);
         
         Animation getAnimation() { return m_animations[m_currentState]; }
         glm::ivec2 getDims() const { return m_dims; }
+        glm::vec4 getUVs() { return m_uvRect; }
         GLTexture getTexture() const { return m_texture; }
         
     private:
         int m_numTilesTotal;
+        float m_animationTime;
         
         std::map<SpriteState, Animation> m_animations;
         
         GLTexture m_texture; ///< GLTexture to render
         glm::ivec2 m_dims; ///< dimention of each sprite (assuming all equal size for single sprite)
+        glm::vec4 m_uvRect;
         
         SpriteState m_currentState;
     };

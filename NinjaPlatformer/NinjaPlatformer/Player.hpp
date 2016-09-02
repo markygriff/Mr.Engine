@@ -52,7 +52,7 @@ private:
     Capsule m_capsule;
     
     MrEngine::ColorRGBA8 m_color;
-    MrEngine::SpriteSheet m_texture;
+    MrEngine::SpriteSheet m_spriteSheet;
     
     glm::vec2 m_drawDims;
     glm::vec2 m_collisionDims;
@@ -60,7 +60,6 @@ private:
     PlayerMoveState m_moveState = PlayerMoveState::STANDING;
     
     int m_direction = 1;
-    float m_animationTime = 0.0f;
     
     bool m_onGround = false;
     bool m_isPunching = false;

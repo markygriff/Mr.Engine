@@ -38,21 +38,24 @@ void Player::init(b2World* world,
     
     //initialize player sprite sheet
     glm::ivec2 spriteDims = glm::ivec2(10.0f, 2.0f);
-    m_texture.init(texture, spriteDims);
+    m_spriteSheet.init(texture, spriteDims);
     
-    m_texture.addAnimation(MrEngine::SpriteState::IDLE, 1, 0, 0.04f);
-    m_texture.addAnimation(MrEngine::SpriteState::RUNNING, 6, 10, 0.04);
-    m_texture.addAnimation(MrEngine::SpriteState::ATTACKING, 5, 1, 0.04f);
-    m_texture.addAnimation(MrEngine::SpriteState::ATTACKING_IN_AIR, 1, 18, 0.02f);
-    m_texture.addAnimation(MrEngine::SpriteState::RISING, 1, 16, 0.04f);
-    m_texture.addAnimation(MrEngine::SpriteState::FALLING, 1, 17, 0.04f);
+    m_spriteSheet.addAnimation(MrEngine::SpriteState::IDLE, 1, 0, 0.04f);
+    m_spriteSheet.addAnimation(MrEngine::SpriteState::RUNNING, 6, 10, 0.04);
+    m_spriteSheet.addAnimation(MrEngine::SpriteState::ATTACKING, 5, 1, 0.04f);
+    m_spriteSheet.addAnimation(MrEngine::SpriteState::ATTACKING_IN_AIR, 1, 18, 0.02f);
+    m_spriteSheet.addAnimation(MrEngine::SpriteState::RISING, 1, 16, 0.04f);
+    m_spriteSheet.addAnimation(MrEngine::SpriteState::FALLING, 1, 17, 0.04f);
+    
+    m_spriteSheet.setAnimation(MrEngine::SpriteState::IDLE);
+    m_spriteSheet.begin();
 }
 
 void Player::draw(MrEngine::SpriteBatch& spriteBatch, float deltaTime)
 {
+    //destination rectangle of where to draw the player sprite texture
     glm::vec4 destRect;
     b2Body* body = m_capsule.getBody();
-    
     destRect.x = body->GetPosition().x - m_drawDims.x / 2.0f;
     destRect.y = body->GetPosition().y - m_capsule.getDimensions().y / 2.0f; ///< use collision dims
     destRect.z = m_drawDims.x;
@@ -69,14 +72,14 @@ void Player::draw(MrEngine::SpriteBatch& spriteBatch, float deltaTime)
         if (m_isPunching)
         {
             //punching
-            if (m_texture.setAnimation(MrEngine::SpriteState::ATTACKING)) m_animationTime = 0.0f;
+            if (m_spriteSheet.setAnimation(MrEngine::SpriteState::ATTACKING)) m_spriteSheet.begin();
         }
         else if ((fabs(velocity.x) > 1.0f) && ((velocity.x > 0 && m_direction > 0 )|| (velocity.x < 0 && m_direction < 0)))
         {
             //running
-            if (m_texture.setAnimation(MrEngine::SpriteState::RUNNING)) m_animationTime = 0.0f;
+            if (m_spriteSheet.setAnimation(MrEngine::SpriteState::RUNNING)) m_spriteSheet.begin();
         }
-        else m_texture.setAnimation(MrEngine::SpriteState::IDLE);
+        else m_spriteSheet.setAnimation(MrEngine::SpriteState::IDLE);
     }
     else
     {
@@ -84,7 +87,7 @@ void Player::draw(MrEngine::SpriteBatch& spriteBatch, float deltaTime)
         if (m_isPunching)
         {
             //kicking in air
-            if (m_texture.setAnimation(MrEngine::SpriteState::ATTACKING_IN_AIR)) m_animationTime = 0.0f;
+            if (m_spriteSheet.setAnimation(MrEngine::SpriteState::ATTACKING_IN_AIR)) m_spriteSheet.begin();
         }
         //if we are moving fast in the air...
         else if(fabs(velocity.x) > 10.0f)
@@ -93,34 +96,22 @@ void Player::draw(MrEngine::SpriteBatch& spriteBatch, float deltaTime)
         }
         
         //falling
-        else if (velocity.y <= 0.0f) m_texture.setAnimation(MrEngine::SpriteState::FALLING);
+        else if (velocity.y <= 0.0f) m_spriteSheet.setAnimation(MrEngine::SpriteState::FALLING);
         //rising
-        else m_texture.setAnimation(MrEngine::SpriteState::RISING);
+        else m_spriteSheet.setAnimation(MrEngine::SpriteState::RISING);
     }
     
-    int tileIndex = m_texture.getAnimation().tileIndex;
-    int numTiles = m_texture.getAnimation().numTiles;
-    float animationSpeed = m_texture.getAnimation().animationSpeed;
-    
     //increment animation time
-    m_animationTime += animationSpeed;
+    m_spriteSheet.end();
     
     //check for punch end
-    if (m_animationTime > numTiles) m_isPunching = false;
+    if (m_spriteSheet.isAnimationFinished()) m_isPunching = false;
     
-    //apply animation
-    tileIndex = tileIndex + ((int)m_animationTime % numTiles);
-
-    //uvRect for rendering sprite
-    glm::vec4 uvRect = m_texture.getUVs(tileIndex);
+    //animate the sprite
+    m_spriteSheet.animate(m_direction, 1);
     
-    //direction check
-    if (m_direction == -1) uvRect = m_texture.flipUVs(uvRect, true, false);
-    
-    //draw the batch of boxes
-    //player sprite has 10x2 frames so each is 0.1 apart
-    // uv(start_pixel_x, start_pixel_y, width_used_of_sheet, height_used_of_sheet)
-    spriteBatch.draw(destRect, uvRect, m_texture.getTexture().id, 0.0f, m_color, body->GetAngle());
+    //draw the player texture from the spriteSheet
+    spriteBatch.draw(destRect, m_spriteSheet.getUVs(), m_spriteSheet.getTexture().id, 0.0f, m_color, body->GetAngle());
 }
 
 void Player::drawDebug(MrEngine::DebugRenderer& debugrenderer)
