@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		CC611D731D73876200144926 /* libMrEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611D721D73876200144926 /* libMrEngine.a */; };
 		CC611E641D7734C900144926 /* LevelReaderWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC611E621D7734C800144926 /* LevelReaderWriter.cpp */; };
-		CC611E6A1D7772A800144926 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E691D7772A800144926 /* libboost_filesystem.dylib */; };
-		CC611E701D7772E800144926 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E6F1D7772E800144926 /* libboost_system.dylib */; };
 		CC611E9A1D78759800144926 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E971D78759700144926 /* SDL2_ttf.framework */; };
 		CC611E9B1D78759800144926 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E981D78759800144926 /* OpenGL.framework */; };
 		CC611EA41D78C47600144926 /* ContactListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC611EA21D78C47600144926 /* ContactListener.cpp */; };
 		CC611EB41D79FC7600144926 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611EB21D79297100144926 /* SDL2.framework */; };
+		CC63C1101D7A733D00572FDB /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E6F1D7772E800144926 /* libboost_system.dylib */; };
+		CC63C1111D7A733D00572FDB /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CC611E691D7772A800144926 /* libboost_filesystem.dylib */; };
 		CC7EBE091D64E93200DF36A9 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC7EBE081D64E93200DF36A9 /* imgui_demo.cpp */; };
 		CC990C281D60C2F4004FAFA9 /* libBox2D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9BA5D01D5D50D000EF149F /* libBox2D.a */; };
 		CCB4E1C21D68D5BE0006DB62 /* PauseMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CCB4E1C01D68D5BE0006DB62 /* PauseMenu.cpp */; };
@@ -34,7 +34,7 @@
 		CC9BA5151D57ADC300EF149F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			dstPath = /usr/share/man/man1;
 			dstSubfolderSpec = 0;
 			files = (
 			);
@@ -54,6 +54,9 @@
 		CC611EA21D78C47600144926 /* ContactListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContactListener.cpp; sourceTree = "<group>"; };
 		CC611EA31D78C47600144926 /* ContactListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ContactListener.hpp; sourceTree = "<group>"; };
 		CC611EB21D79297100144926 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../deps/includes/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		CC63C1091D7A724D00572FDB /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_filesystem.dylib; path = ../../../../../../../usr/local/libboost_filesystem.dylib; sourceTree = "<group>"; };
+		CC63C10A1D7A724D00572FDB /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_system.dylib; path = ../../../../../../../usr/local/libboost_system.dylib; sourceTree = "<group>"; };
+		CC63C10E1D7A72DA00572FDB /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../deps/lib/boost/libboost_system.a; sourceTree = "<group>"; };
 		CC7EBE081D64E93200DF36A9 /* imgui_demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui_demo.cpp; path = ../deps/includes/imgui/imgui_demo.cpp; sourceTree = "<group>"; };
 		CC8F3F071D628943003F80C0 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Assets/Fonts; sourceTree = "<group>"; };
 		CC8F3F081D628943003F80C0 /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Shaders; path = Assets/Shaders; sourceTree = "<group>"; };
@@ -93,11 +96,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC63C1101D7A733D00572FDB /* libboost_system.dylib in Frameworks */,
+				CC63C1111D7A733D00572FDB /* libboost_filesystem.dylib in Frameworks */,
 				CC611EB41D79FC7600144926 /* SDL2.framework in Frameworks */,
 				CC611E9A1D78759800144926 /* SDL2_ttf.framework in Frameworks */,
 				CC611E9B1D78759800144926 /* OpenGL.framework in Frameworks */,
-				CC611E701D7772E800144926 /* libboost_system.dylib in Frameworks */,
-				CC611E6A1D7772A800144926 /* libboost_filesystem.dylib in Frameworks */,
 				CC611D731D73876200144926 /* libMrEngine.a in Frameworks */,
 				CC990C281D60C2F4004FAFA9 /* libBox2D.a in Frameworks */,
 			);
@@ -132,6 +135,9 @@
 		CC9BA50E1D57ADC300EF149F = {
 			isa = PBXGroup;
 			children = (
+				CC63C10E1D7A72DA00572FDB /* libboost_system.a */,
+				CC63C1091D7A724D00572FDB /* libboost_filesystem.dylib */,
+				CC63C10A1D7A724D00572FDB /* libboost_system.dylib */,
 				CC611EB21D79297100144926 /* SDL2.framework */,
 				CC611E971D78759700144926 /* SDL2_ttf.framework */,
 				CC611E981D78759800144926 /* OpenGL.framework */,
@@ -353,12 +359,14 @@
 				DEAD_CODE_STRIPPING = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../deps/includes/Frameworks";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../deps/includes";
+				LD_DYLIB_INSTALL_NAME = "";
 				LD_RUNPATH_SEARCH_PATHS = "$(SRCROOT)/../deps/includes/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/../deps/lib/Debug",
 					"$(SRCROOT)/../deps/lib/boost",
 				);
 				MACH_O_TYPE = mh_execute;
+				PRELINK_LIBS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../MrEngineLib/MrEngine $(SRCROOT)/../deps/includes";
 			};
@@ -373,6 +381,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../deps/includes/Frameworks";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../deps/includes";
+				LD_DYLIB_INSTALL_NAME = "";
 				LD_RUNPATH_SEARCH_PATHS = "$(SRCROOT)/../deps/includes/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/../deps/lib/Release",
@@ -380,6 +389,7 @@
 				);
 				MACH_O_TYPE = mh_execute;
 				ONLY_ACTIVE_ARCH = YES;
+				PRELINK_LIBS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../MrEngineLib/MrEngine $(SRCROOT)/../deps/includes";
 			};
