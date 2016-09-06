@@ -1,6 +1,7 @@
 Mark Griffith.
 
-This is a very basic (for now) 2D game engine I have created using C/C++, OpenGL and SDL2.
+This is a very basic 2D game engine I have created using C/C++, OpenGL and SDL2.
+It has served mainly as a playground for me to explore engine development as I am fascinated with it!
 It includes classes for:
   - Custom SDL Window creation (Window)
   - Loading png sprites and rendering them using vertex/fragment shaders (GLSLProgram)
@@ -12,6 +13,14 @@ It includes classes for:
   - Controlling the main game using a game interface (IMainGame, IGameScreen, ScreenList)
   - Simple debug rendering for outlining simple shapes (DebugRenderer)
   - Easy to set up and use User Interfaces using ImGui --> https://github.com/ocornut/imgui (GUI)
+  - Basic Spritesheet handling, however it is really only useful for instances where the
+    the spritesheet is completely uniform (SpriteSheet)
+    
+TODO: (functionality I plan on working on to further my knowledge of engine design)
+  - Crossplatform development (this won't be a huge concern until I have adequetly learnt enough
+    to begin developing an engine for release)
+  - Upgrade window creation to account for all systems as well as resizing
+  - Better spritesheet handling system to handle uneven spritesheets
 
 A sample game (NinjaPlatformer) is provided which uses Mr.Engine to create a mini game and a level editor
   - Note: the level editor is unfinished, but has the ability to save a level and load it. 
