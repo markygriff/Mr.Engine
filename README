@@ -20,6 +20,7 @@ It includes classes for:
 TODO: (functionality I plan on working on to further my knowledge of engine design)
   - Crossplatform development (this won't be a huge concern until I have adequetly learnt enough
     to begin developing an engine for release)
+  - Implement my own physics engine (currently I am using the Box2D physics engine)
   - Implement my own GUI
   - Upgrade window creation to account for all systems as well as resizing
   - Better spritesheet handling system to handle uneven spritesheets
