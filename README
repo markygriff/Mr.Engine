@@ -2,7 +2,7 @@ Mark Griffith.
 
 This is a very basic 2D game engine I have created using C/C++, OpenGL and SDL2.
 It has served mainly as a playground for me to explore engine development as I am fascinated with it!
-It includes classes for:
+Mr.Engine includes classes for:
   - Custom SDL Window creation (Window)
   - Loading png sprites and rendering them using vertex/fragment shaders (GLSLProgram)
   - Creating sprite batches for efficient sprite rendering (SpriteBatch)
