@@ -13,14 +13,17 @@ It includes classes for:
   - Controlling the main game using a game interface (IMainGame, IGameScreen, ScreenList)
   - Simple debug rendering for outlining simple shapes (DebugRenderer)
   - Easy to set up and use User Interfaces using ImGui --> https://github.com/ocornut/imgui (GUI)
+    NOTE: I would rather create my own GUI, but I needed a quick one for testing.
   - Basic Spritesheet handling, however it is really only useful for instances where the
     the spritesheet is completely uniform (SpriteSheet)
     
 TODO: (functionality I plan on working on to further my knowledge of engine design)
   - Crossplatform development (this won't be a huge concern until I have adequetly learnt enough
     to begin developing an engine for release)
+  - Implement my own GUI
   - Upgrade window creation to account for all systems as well as resizing
   - Better spritesheet handling system to handle uneven spritesheets
+  - Continue learning about game dev:)
 
 A sample game (NinjaPlatformer) is provided which uses Mr.Engine to create a mini game and a level editor
   - Note: the level editor is unfinished, but has the ability to save a level and load it. 
