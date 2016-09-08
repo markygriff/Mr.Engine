@@ -1,11 +1,3 @@
-//
-//  Sprite.hpp
-//  Markine (Game Engine)
-//
-//  Created by Mark Griffith on 2016-07-13.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #ifndef Sprite_hpp
 #define Sprite_hpp
 
@@ -27,7 +19,6 @@ namespace MrEngine {
         ~Sprite();
         
         void init(float x, float y, float w, float h, std::string texturePath);
-        
         void draw();
 
     private:

@@ -1,11 +1,3 @@
-//
-//  IGameScreen.hpp
-//  MisterEngineLib
-//
-//  Created by Mark Griffith on 2016-08-07.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #pragma once
 
 #ifndef IGameScreen_hpp

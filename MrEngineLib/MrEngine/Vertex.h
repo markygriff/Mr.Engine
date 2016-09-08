@@ -1,11 +1,3 @@
-//
-//  Vertex.h
-//  Markine (Game Engine)
-//
-//  Created by Mark Griffith on 2016-07-15.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #ifndef Vertex_h
 #define Vertex_h
 

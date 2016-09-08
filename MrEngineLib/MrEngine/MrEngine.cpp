@@ -1,11 +1,3 @@
-//
-//  MrEngine.cpp
-//  MisterEngineLib
-//
-//  Created by Mark Griffith on 2016-07-18.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #include "MrEngine.hpp"
 #include "FatalError.hpp"
 

@@ -1,11 +1,3 @@
-//
-//  Camera2D.cpp
-//  MisterEngineLib
-//
-//  Created by Mark Griffith on 2016-07-19.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #include "Camera2D.hpp"
 
 #include <iostream>
@@ -14,51 +6,51 @@ namespace MrEngine
 {
     
     
-Camera2D::Camera2D() :
-    m_position(0.0f, 0.0f),
-    m_cameraMatrix(1.0f), //4x4 identitiy matrix
-    m_orthoMatrix(1.0f), //4x4 identity matrix
-    m_scale(1.0f),
-    m_needsMatrixUpdate(true),
-    m_screenWidth(500),
-    m_screenHeight(500)
-{
-    //empty
-}
-
-Camera2D::~Camera2D()
-{
-    //empty
-}
-
-void Camera2D::init(int screenWidth, int screenHeight)
-{
-    m_screenWidth = screenWidth;
-    m_screenHeight = screenHeight;
-    m_orthoMatrix = glm::ortho(0.0f, (float)m_screenWidth, 0.0f, (float)m_screenHeight);
-
-}
-
-void Camera2D::update()
-{
-    if (m_needsMatrixUpdate)
+    Camera2D::Camera2D() :
+        m_position(0.0f, 0.0f),
+        m_cameraMatrix(1.0f), //4x4 identitiy matrix
+        m_orthoMatrix(1.0f), //4x4 identity matrix
+        m_scale(1.0f),
+        m_needsMatrixUpdate(true),
+        m_screenWidth(640),
+        m_screenHeight(480)
     {
-        //where we translate the camera to
-        glm::vec3 translate(-m_position.x + m_screenWidth/2, -m_position.y + m_screenHeight/2, 0.0f);
-        //update camera position to translated position
-        m_cameraMatrix = glm::translate(m_orthoMatrix, translate);
-        
-        //our new scale factor
-        glm::vec3 scale(m_scale, m_scale, 0.0f);
-        
-        //update camera scale to updated scale (scale according to centre screen focal point)
-        m_cameraMatrix = glm::scale(glm::mat4(1.0f), scale) * m_cameraMatrix;
-        
-        //no longer need to update
-        m_needsMatrixUpdate = false;
+        //empty
+    }
+
+    Camera2D::~Camera2D()
+    {
+        //empty
+    }
+
+    void Camera2D::init(int screenWidth, int screenHeight)
+    {
+        m_screenWidth = screenWidth;
+        m_screenHeight = screenHeight;
+        m_orthoMatrix = glm::ortho(0.0f, (float)m_screenWidth, 0.0f, (float)m_screenHeight);
 
     }
-}
+
+    void Camera2D::update()
+    {
+        if (m_needsMatrixUpdate)
+        {
+            //where we translate the camera to
+            glm::vec3 translate(-m_position.x + m_screenWidth/2, -m_position.y + m_screenHeight/2, 0.0f);
+            //update camera position to translated position
+            m_cameraMatrix = glm::translate(m_orthoMatrix, translate);
+            
+            //our new scale factor
+            glm::vec3 scale(m_scale, m_scale, 0.0f);
+            
+            //update camera scale to updated scale (scale according to centre screen focal point)
+            m_cameraMatrix = glm::scale(glm::mat4(1.0f), scale) * m_cameraMatrix;
+            
+            //no longer need to update
+            m_needsMatrixUpdate = false;
+
+        }
+    }
     
     glm::vec2 Camera2D::convertScreenToWorld(glm::vec2 screenCoords)
     {

@@ -37,7 +37,7 @@ void Box::init(b2World* world,
     bodyDef.fixedRotation = fixedRotation;
     m_fixedRotation = fixedRotation;
     bodyDef.angle = angle;
-    
+
     if (isDynamic)
     {
         bodyDef.type = b2_dynamicBody;
@@ -48,21 +48,21 @@ void Box::init(b2World* world,
         bodyDef.type = b2_staticBody;
         m_isDynamic = false;
     }
-    
+
     m_color = color;
     m_dimensions = dims;
     m_body = world->CreateBody(&bodyDef);
     m_texture = texture;
     m_uvRect = uvRect;
-    
+
     b2PolygonShape boxShape;
     boxShape.SetAsBox(dims.x / 2.0f, dims.y / 2.0f);
-    
+
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &boxShape;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 0.3f;
-    
+
     m_fixture = m_body->CreateFixture(&fixtureDef);
 }
 
@@ -73,7 +73,7 @@ void Box::draw(MrEngine::SpriteBatch& spriteBatch)
     destRect.y = m_body->GetPosition().y - m_dimensions.y / 2.0f;
     destRect.z = m_dimensions.x;
     destRect.w = m_dimensions.y;
-    
+
     //draw the batch of boxes
     spriteBatch.draw(destRect, m_uvRect, m_texture.id, 0.0f, m_color, m_body->GetAngle());
 }

@@ -1,11 +1,3 @@
-//
-//  DebugRenderer.hpp
-//  MisterEngineLib
-//
-//  Created by Mark Griffith on 2016-08-08.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #ifndef DebugRenderer_hpp
 #define DebugRenderer_hpp
 

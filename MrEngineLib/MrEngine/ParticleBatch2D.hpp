@@ -1,11 +1,3 @@
-//
-//  ParticleBatch2D.hpp
-//  MisterEngineLib
-//
-//  Created by Mark Griffith on 2016-08-02.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #ifndef ParticleBatch2D_hpp
 #define ParticleBatch2D_hpp
 
@@ -59,7 +51,6 @@ namespace MrEngine
                          float width);
         
         void update(float deltaTime);
-        
         void draw(SpriteBatch* spriteBatch);
         
     private:

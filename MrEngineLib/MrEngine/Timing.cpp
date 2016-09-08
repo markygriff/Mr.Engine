@@ -1,11 +1,3 @@
-//
-//  Timing.cpp
-//  MisterEngineLib
-//
-//  Created by Mark Griffith on 2016-07-21.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #include "Timing.hpp"
 
 #include <SDL2/SDL.h>

@@ -1,11 +1,3 @@
-//
-//  SpriteSheet.hpp
-//  MrEngine
-//
-//  Created by Mark Griffith on 2016-09-01.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #ifndef SpriteSheet_hpp
 #define SpriteSheet_hpp
 
@@ -38,18 +30,25 @@ namespace MrEngine
         int numTiles;
         int tileIndex;
         float animationSpeed;
+        
+        GLTexture texture;
+        int width, height;
+        //glm::ivec2& tileDims;
     };
 
     class SpriteSheet
     {
     public:
-        void init(const GLTexture& texture, glm::ivec2& tileDims);
+        SpriteSheet();
+        ~SpriteSheet();
+        
+        void init();
         void begin(); ///< reset animation time to 0
         void end(); ///< update animation time
         
         bool isAnimationFinished() { return m_animationTime > m_animations[m_currentState].numTiles; }
         
-        void addAnimation(SpriteState spriteState, int numTiles, int tileIndex, float animationSpeed);
+        void addAnimation(SpriteState spriteState, const GLTexture& texture, glm::ivec2& tileDims, int numTiles, int tileIndex, float animationSpeed);
         bool setAnimation(SpriteState spriteState);
         bool animate(int xDir, int yDir);
         
@@ -57,9 +56,9 @@ namespace MrEngine
         void setUVs(int index);
         
         Animation getAnimation() { return m_animations[m_currentState]; }
-        glm::ivec2 getDims() const { return m_dims; }
+        glm::ivec2 getDims() { return glm::ivec2(m_animations[m_currentState].width, m_animations[m_currentState].height); }
         glm::vec4 getUVs() { return m_uvRect; }
-        GLTexture getTexture() const { return m_texture; }
+        GLTexture getTexture() { return m_animations[m_currentState].texture; }
         
     private:
         int m_numTilesTotal;
@@ -67,8 +66,8 @@ namespace MrEngine
         
         std::map<SpriteState, Animation> m_animations;
         
-        GLTexture m_texture; ///< GLTexture to render
-        glm::ivec2 m_dims; ///< dimention of each sprite (assuming all equal size for single sprite)
+        //GLTexture m_texture; ///< GLTexture to render
+        //glm::ivec2 m_dims; ///< dimention of each sprite (assuming all equal size for single sprite)
         glm::vec4 m_uvRect;
         
         SpriteState m_currentState;

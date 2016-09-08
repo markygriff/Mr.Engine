@@ -63,6 +63,8 @@ private:
     
     Player m_player;
     
+    MrEngine::GLTexture m_bgTexture;
+    
     ///PauseMenu m_pauseMenu;
     MrEngine::GUI m_pMenu;
     
@@ -76,6 +78,7 @@ private:
     MrEngine::DebugRenderer m_debugRenderer;
     
     std::vector<Box> m_boxes;
+    Box m_ground;
     
     std::unique_ptr<b2World> m_world; ///< physics world!
     std::unique_ptr<MrEngine::SpriteFont> m_spriteFont; ///< For font rendering
@@ -84,7 +87,7 @@ private:
     bool m_displayMenu = false;
     
     ///temporary
-    float m_scale = 20.0f;
+    float m_scale = 30.0f;
 };
 
 #endif /* GameplayScreen_hpp */

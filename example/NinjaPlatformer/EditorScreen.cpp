@@ -75,6 +75,18 @@ void EditorScreen::onEntry()
     
     //initialize world physics
     m_world = std::make_unique<b2World>(GRAVITY);
+
+    //get all directory entries for tile textures
+    std::vector<MrEngine::DirEntry> textureEntries;
+    MrEngine::IOManager::getDirectoryEntries("../Assets/Textures/Tiles", textureEntries);
+    for (auto& e : textureEntries)
+    {
+        if (!e.isDirectory)
+        {
+            e.path.erase(0, std::string("../Assets/Textures/Tiles/").size());
+            m_textures.push_back(e.path);
+        }
+    }
 }
 
 void EditorScreen::onExit()
@@ -203,7 +215,7 @@ void EditorScreen::drawUI()
     
     if (m_menuGUI.displayed)
     {
-        ImGui::SetNextWindowSize(ImVec2(m_window->getScreenWidth() / 2.35f, m_window->getScreenHeight() / 2.20), ImGuiSetCond_Always);
+        ImGui::SetNextWindowSize(ImVec2(m_window->getScreenWidth() / 2.15f, m_window->getScreenHeight() / 2.20), ImGuiSetCond_Always);
         ImGui::SetNextWindowPos(ImVec2(0, 0), ImGuiSetCond_Always);
         
         ImGui::Begin("Game Editor", &alwaysTrue);
@@ -330,6 +342,29 @@ void EditorScreen::drawUI()
                 ImGui::SliderAngle("Angle", &m_angle);
                 ImGui::PopStyleColor(4);
                 ImGui::PopID();
+                
+                if (ImGui::CollapsingHeader("Platform Texture"))
+                {
+                    ImGui::PushStyleVar(ImGuiStyleVar_ChildWindowRounding, 5.0f);
+                    ImGui::BeginChild("Sub2", ImVec2(0,300), true);
+                    ImGui::Text("Choose a Texture");
+                    ImGui::Columns(2);
+                    for (int i = 0; i < m_textures.size(); i++)
+                    {
+                        if (i == 100)
+                            ImGui::NextColumn();
+                        char buf[32];
+                        sprintf(buf, "%s", m_textures[i].c_str());
+                        if (ImGui::Button(m_textures[i].c_str()))
+                        {
+                            m_platformTexture = MrEngine::ResourceManager::getTexture("../Assets/Textures/Tiles/" + m_textures[i]);
+                        }
+                    }
+                    ImGui::EndChild();
+                    ImGui::PopStyleVar();
+                }
+                
+                ImGui::Spacing();ImGui::Spacing();ImGui::Spacing();
             }
             
             //display light size slider
@@ -485,22 +520,22 @@ void EditorScreen::drawUI()
         {
             ImGui::Text("User Guide:\n");
             
-            ImGui::Text("Hello! Welcome to my very first editor screen.");
-            ImGui::BulletText("Create an object by selecting either Player, Platform, or Light.\nLeft click to place object.");
-            ImGui::BulletText("Platforms can either be Dynamic (able to move) or Rigid (immovable).");
-            ImGui::BulletText("Customize each object's color with the color sliders.");
+            ImGui::TextWrapped("Hello! Welcome to my very first editor screen.");
+            ImGui::BulletText("Create an object by selecting either\nPlayer, Platform, or Light.\nLeft click to place object.");
+            ImGui::BulletText("Platforms can either be Dynamic\n(able to move) or Rigid (immovable).");
+            ImGui::BulletText("Customize each object's color with the\ncolor sliders.");
             ImGui::BulletText("Place an object by clicking 'Place'");
-            ImGui::BulletText("Select a created object by clicking 'Select'");
-            ImGui::BulletText("If an object is selected, press 'Delete' to destroy it.");
+            ImGui::BulletText("Select a created object by clicking\n'Select'");
+            ImGui::BulletText("If an object is selected, press\n'Delete' to destroy it.");
             ImGui::BulletText("Mouse Wheel to zoom.");
-            ImGui::BulletText("Right click and drag to move around the map.");
+            ImGui::BulletText("Right click and drag to move around the\nmap.");
             ImGui::BulletText("Debug Rendering:\n"
                               "- Green outline means Dynamic object\n"
                               "- Red outline means Static object"
                               );
-            ImGui::BulletText("Press PLAY/PAUSE to play/pause your created level.");
+            ImGui::BulletText("Press PLAY/PAUSE to play/pause your\ncreated level.");
             //ImGui::BulletText("Press RESET to reset your current level.");
-            ImGui::BulletText("Press 'SAVE' to save the current state of your level");
+            ImGui::BulletText("Press 'SAVE' to save the current state\nof your level");
             ImGui::BulletText("Press 'LOAD' to load your last save state.");
         }
         
@@ -526,7 +561,7 @@ void EditorScreen::drawUI()
 void EditorScreen::showSaveMenu(bool* open)
 {
     //Draw the menu
-    ImGui::SetNextWindowSize(ImVec2(300, 220), ImGuiSetCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(m_window->getScreenWidth() / 2.25f, m_window->getScreenHeight() / 3.0f), ImGuiSetCond_Always);
     if (ImGui::Begin("Load Menu", open, ImGuiWindowFlags_MenuBar))
     {
         if (ImGui::BeginMenuBar())
@@ -559,7 +594,7 @@ void EditorScreen::showSaveMenu(bool* open)
 void EditorScreen::showLoadMenu(bool* open)
 {
     //Draw the menu
-    ImGui::SetNextWindowSize(ImVec2(300, 220), ImGuiSetCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(m_window->getScreenWidth() / 2.25f, m_window->getScreenHeight() / 3.0f), ImGuiSetCond_Always);
     if (ImGui::Begin("Load Menu", open, ImGuiWindowFlags_MenuBar))
     {
         if (ImGui::BeginMenuBar())
@@ -742,8 +777,6 @@ bool EditorScreen::inLightSelect(const Light& l, const glm::vec2& pos)
 
 void EditorScreen::mousedownEvent(const SDL_Event &event)
 {
-    static MrEngine::GLTexture tex = MrEngine::ResourceManager::getTexture("../Assets/Textures/bricks_top.png");
-    
     glm::vec2 pos;
     glm::vec4 uvRect;
     
@@ -860,9 +893,9 @@ void EditorScreen::mousedownEvent(const SDL_Event &event)
                         pos = m_camera.convertScreenToWorld(glm::vec2(event.button.x, event.button.y));
                         uvRect.x = pos.x;
                         uvRect.y = pos.y;
-                        uvRect.z = m_boxWidth;
-                        uvRect.w = m_boxHeight;
-                        newBox.init(m_world.get(), pos, glm::vec2(m_boxWidth, m_boxHeight), tex, MrEngine::ColorRGBA8(m_red, m_green, m_blue, m_alpha), false, m_physicsMode == PhysicsMode::DYNAMIC,  m_angle, uvRect);
+                        uvRect.z = 1.0f;
+                        uvRect.w = 1.0f;
+                        newBox.init(m_world.get(), pos, glm::vec2(m_boxWidth, m_boxHeight), m_platformTexture, MrEngine::ColorRGBA8(m_red, m_green, m_blue, m_alpha), false, m_physicsMode == PhysicsMode::DYNAMIC,  m_angle);
                         
                         //pos is the upper left corner of the box
                         
@@ -960,8 +993,6 @@ void EditorScreen::updateSelectedBox()
 void EditorScreen::updateSelectedBox(const glm::vec2& newPosition)
 {
     if (m_currentBox == NONE) return;
-
-    static MrEngine::GLTexture tex = MrEngine::ResourceManager::getTexture("../Assets/Textures/bricks_top.png");
     
     glm::vec4 uvRect;
     uvRect.x = newPosition.x;
@@ -970,7 +1001,7 @@ void EditorScreen::updateSelectedBox(const glm::vec2& newPosition)
     uvRect.w = m_boxHeight;
     Box newBox;
     
-    newBox.init(m_world.get(), newPosition, glm::vec2(m_boxWidth, m_boxHeight), tex, MrEngine::ColorRGBA8(m_red, m_green, m_blue, m_alpha), false, m_physicsMode == PhysicsMode::DYNAMIC, m_angle, uvRect);
+    newBox.init(m_world.get(), newPosition, glm::vec2(m_boxWidth, m_boxHeight), m_platformTexture, MrEngine::ColorRGBA8(m_red, m_green, m_blue, m_alpha), false, m_physicsMode == PhysicsMode::DYNAMIC, m_angle, uvRect);
     
     //destroy old box and replace with new one
     m_boxes[m_currentBox].destroy(m_world.get());

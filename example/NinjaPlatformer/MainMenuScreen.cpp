@@ -80,8 +80,8 @@ void MainMenuScreen::drawUI()
     
     if (m_menuGUI.displayed)
     {
-        ImGui::SetNextWindowPos(ImVec2(m_window->getScreenWidth()/2 - 250, m_window->getScreenHeight()/2 - 250));
-        ImGui::SetNextWindowSize(ImVec2(500, 500), ImGuiSetCond_Always);
+        ImGui::SetNextWindowPos(ImVec2(0, 0));
+        ImGui::SetNextWindowSize(ImVec2(m_window->getScreenWidth(), m_window->getScreenHeight()), ImGuiSetCond_Always);
         
         ImGui::Begin("Welcome to the Main Menu", &m_menuGUI.displayed);
         

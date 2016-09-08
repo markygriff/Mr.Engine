@@ -1,11 +1,3 @@
-//
-//  TileSheet.h
-//  MisterEngineLib
-//
-//  Created by Mark Griffith on 2016-08-09.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #ifndef TileSheet_h
 #define TileSheet_h
 

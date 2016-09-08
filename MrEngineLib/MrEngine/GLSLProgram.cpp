@@ -1,11 +1,3 @@
-//
-//  GLSLProgram.cpp
-//  Markine (Game Engine)
-//
-//  Created by Mark Griffith on 2016-07-13.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #include "GLSLProgram.hpp"
 #include "FatalError.hpp"
 #include "IOManager.hpp"

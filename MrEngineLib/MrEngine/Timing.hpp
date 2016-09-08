@@ -1,11 +1,3 @@
-//
-//  Timing.hpp
-//  MisterEngineLib
-//
-//  Created by Mark Griffith on 2016-07-21.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #ifndef Timing_hpp
 #define Timing_hpp
 

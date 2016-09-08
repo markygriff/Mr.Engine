@@ -18,6 +18,8 @@
 #include <TileSheet.h>
 #include <SpriteSheet.hpp>
 
+#include <vector>
+
 
 enum class PlayerMoveState {STANDING, RUNNING, PUNCHING, IN_AIR};
 

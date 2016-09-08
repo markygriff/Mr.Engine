@@ -38,14 +38,20 @@ void Player::init(b2World* world,
     
     //initialize player sprite sheet
     glm::ivec2 spriteDims = glm::ivec2(10.0f, 2.0f);
-    m_spriteSheet.init(texture, spriteDims);
     
-    m_spriteSheet.addAnimation(MrEngine::SpriteState::IDLE, 1, 0, 0.04f);
-    m_spriteSheet.addAnimation(MrEngine::SpriteState::RUNNING, 6, 10, 0.04);
-    m_spriteSheet.addAnimation(MrEngine::SpriteState::ATTACKING, 5, 1, 0.04f);
-    m_spriteSheet.addAnimation(MrEngine::SpriteState::ATTACKING_IN_AIR, 1, 18, 0.02f);
-    m_spriteSheet.addAnimation(MrEngine::SpriteState::RISING, 1, 16, 0.04f);
-    m_spriteSheet.addAnimation(MrEngine::SpriteState::FALLING, 1, 17, 0.04f);
+    m_spriteSheet.addAnimation(MrEngine::SpriteState::IDLE, texture, spriteDims, 1, 0, 0.04f);
+    m_spriteSheet.addAnimation(MrEngine::SpriteState::RUNNING, texture, spriteDims, 6, 10, 0.04f);
+    m_spriteSheet.addAnimation(MrEngine::SpriteState::ATTACKING, texture, spriteDims, 5, 1, 0.04f);
+    m_spriteSheet.addAnimation(MrEngine::SpriteState::ATTACKING_IN_AIR, texture, spriteDims, 1, 18, 0.02f);
+    m_spriteSheet.addAnimation(MrEngine::SpriteState::RISING, texture, spriteDims, 1, 16, 0.04f);
+    m_spriteSheet.addAnimation(MrEngine::SpriteState::FALLING, texture, spriteDims, 1, 17, 0.04f);
+    
+//    m_spriteSheet.addAnimation(MrEngine::SpriteState::IDLE, 1, 0, 0.04f);
+//    m_spriteSheet.addAnimation(MrEngine::SpriteState::RUNNING, 6, 10, 0.04);
+//    m_spriteSheet.addAnimation(MrEngine::SpriteState::ATTACKING, 5, 1, 0.04f);
+//    m_spriteSheet.addAnimation(MrEngine::SpriteState::ATTACKING_IN_AIR, 1, 18, 0.02f);
+//    m_spriteSheet.addAnimation(MrEngine::SpriteState::RISING, 1, 16, 0.04f);
+//    m_spriteSheet.addAnimation(MrEngine::SpriteState::FALLING, 1, 17, 0.04f);
     
     m_spriteSheet.setAnimation(MrEngine::SpriteState::IDLE);
     m_spriteSheet.begin();
@@ -183,7 +189,7 @@ void Player::update(MrEngine::InputManager& inputManager, float deltaTime)
                 //jump!
                 if (inputManager.isKeyPressed(SDLK_w) || inputManager.isKeyPressed(SDLK_UP))
                 {
-                    body->ApplyLinearImpulse(b2Vec2(0.0f, 10.0f), b2Vec2(0.0f, 0.0f), true);
+                    body->ApplyLinearImpulse(b2Vec2(0.0f, 7.5f), b2Vec2(0.0f, 0.0f), true);
                 }
                 m_onGround = true;
                 below = false;

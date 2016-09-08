@@ -16,7 +16,6 @@
 #include "InputManager.hpp"
 
 #include <stdio.h>
-//#include <memory>
 
 namespace MrEngine
 {
@@ -51,17 +50,13 @@ namespace MrEngine
         
         bool init();
         bool initSystems();
-        
-        /// Custom update
         virtual void update(float deltaTime);
-        
-        /// Custom draw
         virtual void draw(float deltaTime);
         
-        std::unique_ptr<ScreenList> m_screenList = nullptr; ///< the game's screen list
-        IGameScreen* m_currentScreen = nullptr; ///< the current screen in focus
         bool m_isRunning = false; ///< to check which screen is in focus
         float m_fps = 0; ///< main game's fps
+        std::unique_ptr<ScreenList> m_screenList = nullptr; ///< the game's screen list
+        IGameScreen* m_currentScreen = nullptr; ///< the current screen in focus
         Window m_window; ///< main game's window
     };
     

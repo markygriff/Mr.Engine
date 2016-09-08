@@ -1,11 +1,3 @@
-//
-//  TextureCache.hpp
-//  MarkyEngine
-//
-//  Created by Mark Griffith on 2016-07-17.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #ifndef TextureCache_hpp
 #define TextureCache_hpp
 

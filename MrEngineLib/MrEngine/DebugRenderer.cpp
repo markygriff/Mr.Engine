@@ -1,11 +1,3 @@
-//
-//  DebugRenderer.cpp
-//  MisterEngineLib
-//
-//  Created by Mark Griffith on 2016-08-08.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #include "DebugRenderer.hpp"
 
 const float PI = 3.14159265359f;

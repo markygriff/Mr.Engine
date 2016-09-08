@@ -1,11 +1,3 @@
-//
-//  IOManager.cpp
-//  Markine (Game Engine)
-//
-//  Created by Mark Griffith on 2016-07-15.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #include "IOManager.hpp"
 
 #include <fstream>

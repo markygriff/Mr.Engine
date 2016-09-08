@@ -21,6 +21,7 @@
 #include <ScreenList.hpp>
 #include <GLSLProgram.hpp>
 #include <SpriteBatch.hpp>
+#include <ResourceManager.hpp>
 
 #include <Box2D/Box2D.h>
 #include <stdio.h>
@@ -143,6 +144,7 @@ private:
     
     std::vector<std::string> m_saveItems;
     std::vector<std::string> m_loadItems;
+    std::vector<std::string> m_textures;
     
     std::unique_ptr<b2World> m_world;
 
@@ -156,6 +158,8 @@ private:
     MrEngine::DebugRenderer m_debugRenderer;
     
     MrEngine::SpriteBatch m_spriteBatch;
+    MrEngine::GLTexture m_platformTexture = MrEngine::ResourceManager::getTexture("../Assets/Textures/bricks_light_top.png");
+    
     
     float m_scale = 20.0f;
     

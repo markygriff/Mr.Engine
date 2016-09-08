@@ -1,11 +1,3 @@
-//
-//  ParticleEngine2D.cpp
-//  MisterEngineLib
-//
-//  Created by Mark Griffith on 2016-08-02.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #include "ParticleEngine2D.hpp"
 #include "ParticleBatch2D.hpp"
 

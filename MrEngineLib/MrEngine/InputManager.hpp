@@ -1,11 +1,3 @@
-//
-//  InputManager.hpp
-//  MisterEngineLib
-//
-//  Created by Mark Griffith on 2016-07-21.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #ifndef InputManager_hpp
 #define InputManager_hpp
 

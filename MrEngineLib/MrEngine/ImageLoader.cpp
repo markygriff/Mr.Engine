@@ -1,12 +1,3 @@
-//
-//  ImageLoader.cpp
-//  MarkyEngine
-//
-//  Created by Mark Griffith on 2016-07-16.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
-
 #include "ImageLoader.hpp"
 #include "picoPNG.hpp"
 #include "IOManager.hpp"

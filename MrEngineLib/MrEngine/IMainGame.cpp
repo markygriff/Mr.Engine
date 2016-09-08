@@ -1,11 +1,3 @@
-//
-//  IMainGame.cpp
-//  MisterEngineLib
-//
-//  Created by Mark Griffith on 2016-08-07.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #include "IMainGame.hpp"
 #include "Timing.hpp"
 #include "ScreenList.hpp"
@@ -138,7 +130,7 @@ namespace MrEngine
     
     bool IMainGame::initSystems()
     {
-        m_window.create("DEFAULT_NAME", 1340, 820, 0);
+        m_window.create("DEFAULT_NAME", 1080, 810, WindowFlags::FULLSCREEN);
         
         return true;
     }

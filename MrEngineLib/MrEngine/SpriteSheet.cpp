@@ -1,22 +1,20 @@
-//
-//  SpriteSheet.cpp
-//  MrEngine
-//
-//  Created by Mark Griffith on 2016-09-01.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #include "SpriteSheet.hpp"
 
 
 namespace MrEngine
 {
-
-    
-    void SpriteSheet::init(const GLTexture& texture, glm::ivec2& tileDims)
+    SpriteSheet::SpriteSheet()
     {
-        this->m_texture = texture;
-        this->m_dims = tileDims;
+        
+    }
+    
+    SpriteSheet::~SpriteSheet()
+    {
+        
+    }
+    
+    void SpriteSheet::init()
+    {
     }
     
     void SpriteSheet::begin()
@@ -29,13 +27,16 @@ namespace MrEngine
         m_animationTime += m_animations[m_currentState].animationSpeed;
     }
     
-    void SpriteSheet::addAnimation(MrEngine::SpriteState spriteState, int numTiles, int tileIndex, float animationSpeed)
+    void SpriteSheet::addAnimation(MrEngine::SpriteState spriteState, const GLTexture& texture, glm::ivec2& tileDims, int numTiles, int tileIndex, float animationSpeed)
     {
         Animation newAnim;
         
         newAnim.numTiles = numTiles;
         newAnim.tileIndex = tileIndex;
         newAnim.animationSpeed = animationSpeed;
+        newAnim.texture = texture;
+        newAnim.width = tileDims.x;
+        newAnim.height = tileDims.y;
         
         m_animations[spriteState] = newAnim;
     }
@@ -71,7 +72,7 @@ namespace MrEngine
         if (yPlane)
         {
             //move forward the sprite we're looking at
-            m_uvRect.x += 1.0f / m_dims.x;
+            m_uvRect.x += 1.0f / m_animations[m_currentState].width;
             //flipbackwards the sprite we're looking at
             m_uvRect.z *= -1;
         }
@@ -79,7 +80,7 @@ namespace MrEngine
         if (xPlane)
         {
             //move up the sprite we're looking at
-            m_uvRect.y += 1.0f / m_dims.y;
+            m_uvRect.y += 1.0f / m_animations[m_currentState].height;
             //flip upside down the sprite we're looking at
             m_uvRect.w += -1;
         }
@@ -88,14 +89,14 @@ namespace MrEngine
     void SpriteSheet::setUVs(int index)
     {
         //using int so no remainder
-        int xTile = index % m_dims.x;
-        int yTile = index / m_dims.x;
+        int xTile = index % m_animations[m_currentState].width;
+        int yTile = index / m_animations[m_currentState].width;
         
         glm::vec4 uv;
-        m_uvRect.x = xTile / (float)m_dims.x;
-        m_uvRect.y = yTile / (float)m_dims.y;
-        m_uvRect.z = 1.0f / m_dims.x;
-        m_uvRect.w = 1.0f / m_dims.y;
+        m_uvRect.x = xTile / (float)m_animations[m_currentState].width;
+        m_uvRect.y = yTile / (float)m_animations[m_currentState].height;
+        m_uvRect.z = 1.0f / m_animations[m_currentState].width;
+        m_uvRect.w = 1.0f / m_animations[m_currentState].height;
     }
     
     

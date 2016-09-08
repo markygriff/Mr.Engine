@@ -1,11 +1,3 @@
-//
-//  Camera2D.hpp
-//  MisterEngineLib
-//
-//  Created by Mark Griffith on 2016-07-19.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #ifndef Camera2D_hpp
 #define Camera2D_hpp
 
