@@ -54,8 +54,6 @@
 		CC611EA21D78C47600144926 /* ContactListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContactListener.cpp; sourceTree = "<group>"; };
 		CC611EA31D78C47600144926 /* ContactListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ContactListener.hpp; sourceTree = "<group>"; };
 		CC611EB21D79297100144926 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../deps/includes/Frameworks/SDL2.framework; sourceTree = "<group>"; };
-		CC63C1091D7A724D00572FDB /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_filesystem.dylib; path = ../../../../../../../usr/local/libboost_filesystem.dylib; sourceTree = "<group>"; };
-		CC63C10A1D7A724D00572FDB /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_system.dylib; path = ../../../../../../../usr/local/libboost_system.dylib; sourceTree = "<group>"; };
 		CC63C10E1D7A72DA00572FDB /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../deps/lib/boost/libboost_system.a; sourceTree = "<group>"; };
 		CC7EBE081D64E93200DF36A9 /* imgui_demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui_demo.cpp; path = ../deps/includes/imgui/imgui_demo.cpp; sourceTree = "<group>"; };
 		CC8F3F071D628943003F80C0 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Assets/Fonts; sourceTree = "<group>"; };
@@ -136,8 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				CC63C10E1D7A72DA00572FDB /* libboost_system.a */,
-				CC63C1091D7A724D00572FDB /* libboost_filesystem.dylib */,
-				CC63C10A1D7A724D00572FDB /* libboost_system.dylib */,
 				CC611EB21D79297100144926 /* SDL2.framework */,
 				CC611E971D78759700144926 /* SDL2_ttf.framework */,
 				CC611E981D78759800144926 /* OpenGL.framework */,
