@@ -1,19 +1,19 @@
 dependencies: \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/AudioEngine.cpp \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/AudioEngine.hpp \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2_mixer.framework/Headers/SDL_mixer.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_stdinc.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_config.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_platform.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/begin_code.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/close_code.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_config_macosx.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_rwops.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_error.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_audio.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_endian.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_mutex.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_thread.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_atomic.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_version.h \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/FatalError.hpp
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/MrEngine/AudioEngine.cpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/MrEngine/AudioEngine.hpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2_mixer.framework/Headers/SDL_mixer.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_stdinc.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_config.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_platform.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/begin_code.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/close_code.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_config_macosx.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_rwops.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_error.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_audio.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_endian.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_mutex.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_thread.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_atomic.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/../deps/includes/Frameworks/SDL2.framework/Headers/SDL_version.h \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/MrEngine/FatalError.hpp

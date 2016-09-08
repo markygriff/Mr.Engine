@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/picoPNG.cpp \
-  /Users/Marky/GitHub/Mr.Engine/MrEngineLib/MrEngine/picoPNG.hpp
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/MrEngine/picoPNG.cpp \
+  /Users/Marky/Documents/Programming/SDL/GameEngineProject/MrEngineLib/MrEngine/picoPNG.hpp

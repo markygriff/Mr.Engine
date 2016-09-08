@@ -130,7 +130,7 @@ namespace MrEngine
     
     bool IMainGame::initSystems()
     {
-        m_window.create("DEFAULT_NAME", 1080, 810, WindowFlags::FULLSCREEN);
+        m_window.create("DEFAULT_WINDOW_TITLE :)", 1080, 640, WindowFlags::FULLSCREEN);
         
         return true;
     }
