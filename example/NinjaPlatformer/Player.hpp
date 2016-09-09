@@ -48,10 +48,13 @@ public:
     const glm::vec2& getCollisionDims() const { return m_collisionDims; }
     const MrEngine::ColorRGBA8 getColor() const { return m_color; }
     glm::vec2 getPosition() const { return glm::vec2(m_capsule.getBody()->GetPosition().x, m_capsule.getBody()->GetPosition().y); }
+    bool isTouchedRight() const { return m_touchedRight; }
     bool isPunching() const { return m_isPunching; }
+    
 
 private:
     Capsule m_capsule;
+    bool m_touchedRight = false;
     
     MrEngine::ColorRGBA8 m_color;
     MrEngine::SpriteSheet m_spriteSheet;

@@ -62,6 +62,7 @@ private:
     void exitClicked();
     
     Player m_player;
+    int m_playerScore = 0;
     
     MrEngine::GLTexture m_bgTexture;
     

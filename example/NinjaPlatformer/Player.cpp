@@ -157,6 +157,7 @@ void Player::update(MrEngine::InputManager& inputManager, float deltaTime)
     //check if the ground is below and touching, then we can JUMP!
     //look through all contact points
     m_onGround = false;
+    m_touchedRight = false;
     for (b2ContactEdge* contactEdge = body->GetContactList(); contactEdge != nullptr; contactEdge = contactEdge->next)
     {
         //check if contact point is touching anything
@@ -169,7 +170,6 @@ void Player::update(MrEngine::InputManager& inputManager, float deltaTime)
             
             //check if touching below
             bool below = false;
-            bool right = false;
             for (int i = 0; i < b2_maxManifoldPoints; i++)
             {
                 if (manifold.points[i].y < (body->GetPosition().y - m_capsule.getDimensions().y / 2.0f + m_capsule.getDimensions().x / 2.0f - 0.1f))
@@ -179,7 +179,7 @@ void Player::update(MrEngine::InputManager& inputManager, float deltaTime)
                 }
                 if (manifold.points[i].x > (body->GetPosition().x))
                 {
-                    right = true;
+                    m_touchedRight = true;
                     break;
                 }
             }

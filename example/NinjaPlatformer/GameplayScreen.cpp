@@ -154,9 +154,11 @@ void GameplayScreen::update(float deltaTime)
         m_world->Step(deltaTime, 6, 2);
     }
 
-    static int i = 0;
     for (auto& box : m_boxes)
     {
+        //move box left
+        box.getBody()->ApplyForceToCenter(b2Vec2(-10.0f, 0.0f), true);
+        
         //delete boxes which have passed the left side of the screen
         if (box.getPosition().x < m_camera.getPosition().x - m_window->getScreenWidth() / 2 / m_scale)
         {
@@ -168,9 +170,13 @@ void GameplayScreen::update(float deltaTime)
             //erase the box
             box.destroy(m_world.get());
             m_boxes.erase(m_boxes.begin());
-            i = 0;
+            m_playerScore++;
         }
-        box.getBody()->ApplyForceToCenter(b2Vec2(-10.0f, 0.0f), true);
+        
+        if (m_player.isTouchedRight())
+        {
+            m_playerScore = 0;
+        }
     }
 
     m_camera.update();
@@ -330,10 +336,12 @@ void GameplayScreen::drawFPS()
     const MrEngine::ColorRGBA8 fontColor(255, 220, 0, 255);
     // Convert float to char *
     char buffer[64];
-    sprintf(buffer, "%.1f", m_game->getFps());
+//    sprintf(buffer, "%.1f", m_game->getFps());
+        sprintf(buffer, "%.1d", m_playerScore);
 
     //render text to the screen
-    m_spriteFont->draw(m_spriteBatch, buffer, glm::vec2(-m_window->getScreenWidth() / 2.0f / m_scale, m_window->getScreenHeight() / 2.0f / m_scale - (m_spriteFont->getFontHeight() / m_scale) - 1.0f),
+    m_spriteFont->draw(m_spriteBatch, buffer,
+                       glm::vec2(-m_window->getScreenWidth() / 2.10f / m_scale, m_window->getScreenHeight() / 2.0f / m_scale - (m_spriteFont->getFontHeight() / m_scale) - 1.0f),
                        glm::vec2(1.0f / m_scale), 0.0f, fontColor);
 }
 
