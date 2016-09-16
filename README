@@ -28,7 +28,12 @@ TODO: (functionality I plan on working on to further my knowledge of engine desi
 
 A sample game (example) is provided which uses Mr.Engine to create a mini game and a level editor
   - Note: the level editor is unfinished, but has the ability to save a level and load it. 
-  - todo: save and load game data using binary rather than text format. 
+  - todo: save and load game data using binary rather than text format.
+  
+ How to use Mr.Engine, custom 2D game engine
+ 1. Create a main 'App' class which inherits from
+    Mr.Engine's IMainGame class.
+ 2. Run the app. SIMPLE :)
 
 BUILDING (OSX only) :
   - Open MisterEngineLib.xcodeproj
