@@ -1,11 +1,3 @@
-//
-//  LevelReaderWriter.hpp
-//  NinjaPlatformer
-//
-//  Created by Mark Griffith on 2016-08-31.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #ifndef LevelReaderWriter_hpp
 #define LevelReaderWriter_hpp
 

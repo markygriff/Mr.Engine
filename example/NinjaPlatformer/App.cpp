@@ -1,11 +1,3 @@
-//
-//  App.cpp
-//  NinjaPlatformer
-//
-//  Created by Mark Griffith on 2016-08-07.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #include "App.hpp"
 
 #include <ScreenList.hpp>

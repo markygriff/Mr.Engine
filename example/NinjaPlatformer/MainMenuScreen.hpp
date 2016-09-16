@@ -1,11 +1,3 @@
-//
-//  MainMenuScreen.hpp
-//  NinjaPlatformer
-//
-//  Created by Mark Griffith on 2016-08-24.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #ifndef MainMenuScreen_hpp
 #define MainMenuScreen_hpp
 

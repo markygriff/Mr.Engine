@@ -1,11 +1,3 @@
-//
-//  MainMenuScreen.cpp
-//  NinjaPlatformer
-//
-//  Created by Mark Griffith on 2016-08-24.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #include "MainMenuScreen.hpp"
 
 #include <IMainGame.hpp>

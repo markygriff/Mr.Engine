@@ -1,11 +1,3 @@
-//
-//  Capsule.cpp
-//  NinjaPlatformer
-//
-//  Created by Mark Griffith on 2016-08-09.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #include "Capsule.hpp"
 
 void Capsule::init(b2World* world,

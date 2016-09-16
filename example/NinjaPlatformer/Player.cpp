@@ -1,11 +1,3 @@
-//
-//  Player.cpp
-//  NinjaPlatformer
-//
-//  Created by Mark Griffith on 2016-08-08.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #include "Player.hpp"
 
 #include <ResourceManager.hpp>
@@ -14,12 +6,12 @@
 
 Player::Player()
 {
-    
+    //empty
 }
 
 Player::~Player()
 {
-    
+    //empty
 }
 
 void Player::init(b2World* world,
@@ -45,13 +37,6 @@ void Player::init(b2World* world,
     m_spriteSheet.addAnimation(MrEngine::SpriteState::ATTACKING_IN_AIR, texture, spriteDims, 1, 18, 0.02f);
     m_spriteSheet.addAnimation(MrEngine::SpriteState::RISING, texture, spriteDims, 1, 16, 0.04f);
     m_spriteSheet.addAnimation(MrEngine::SpriteState::FALLING, texture, spriteDims, 1, 17, 0.04f);
-    
-//    m_spriteSheet.addAnimation(MrEngine::SpriteState::IDLE, 1, 0, 0.04f);
-//    m_spriteSheet.addAnimation(MrEngine::SpriteState::RUNNING, 6, 10, 0.04);
-//    m_spriteSheet.addAnimation(MrEngine::SpriteState::ATTACKING, 5, 1, 0.04f);
-//    m_spriteSheet.addAnimation(MrEngine::SpriteState::ATTACKING_IN_AIR, 1, 18, 0.02f);
-//    m_spriteSheet.addAnimation(MrEngine::SpriteState::RISING, 1, 16, 0.04f);
-//    m_spriteSheet.addAnimation(MrEngine::SpriteState::FALLING, 1, 17, 0.04f);
     
     m_spriteSheet.setAnimation(MrEngine::SpriteState::IDLE);
     m_spriteSheet.begin();

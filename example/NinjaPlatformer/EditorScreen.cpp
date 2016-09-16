@@ -1,10 +1,8 @@
-//
-//  EditorScreen.cpp
-//  NinjaPlatformer
-//
-//  Created by Mark Griffith on 2016-08-24.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
+/*****************************************
+ 
+ Editor Screen.
+ 
+ ****************************************/
 
 #include "EditorScreen.hpp"
 
@@ -896,8 +894,6 @@ void EditorScreen::mousedownEvent(const SDL_Event &event)
                         uvRect.z = 1.0f;
                         uvRect.w = 1.0f;
                         newBox.init(m_world.get(), pos, glm::vec2(m_boxWidth, m_boxHeight), m_platformTexture, MrEngine::ColorRGBA8(m_red, m_green, m_blue, m_alpha), false, m_physicsMode == PhysicsMode::DYNAMIC,  m_angle);
-                        
-                        //pos is the upper left corner of the box
                         
                         m_boxes.push_back(newBox);
                         break;

@@ -1,10 +1,9 @@
-//
-//  GameplayScreen.cpp
-//  NinjaPlatformer
-//
-//  Created by Mark Griffith on 2016-08-07.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
+/*****************************************
+ 
+GamePlay Screen. 
+Use WASD to move character.
+ 
+ ****************************************/
 
 #include "GameplayScreen.hpp"
 #include "Light.h"
@@ -70,11 +69,17 @@ void GameplayScreen::onEntry()
     b2PolygonShape groundBox;
     groundBox.SetAsBox(5000.0f, 0.0f);
     //set the placement of the ground in space
-    groundBodyDef.position.Set(0.0f, -((m_window->getScreenHeight() / 2.0f)) / m_scale  );
+    groundBodyDef.position.Set(0.0f, -((m_window->getScreenHeight() / 2.0f)) / m_scale);
     b2Body* groundBody = m_world->CreateBody(&groundBodyDef);
-
     //make the ground fixture
     groundBody->CreateFixture(&groundBox, 0.0f);
+    
+    b2BodyDef wallBodyDef;
+    b2PolygonShape wallBox;
+    wallBox.SetAsBox(0.0f, 1000.0f);
+    wallBodyDef.position.Set(-((m_window->getScreenWidth() / 2.0f)) / m_scale, -((m_window->getScreenHeight() / 2.0f)) / m_scale);
+    b2Body* wallBody = m_world->CreateBody(&wallBodyDef);
+    wallBody->CreateFixture(&wallBox, 0.0f);
     
     m_ground.init(m_world.get(), glm::vec2(0.0f, -m_window->getScreenHeight() / 2 / m_scale), glm::vec2(m_window->getScreenWidth() / m_scale * 1.25, m_window->getScreenHeight() / 5 / m_scale), MrEngine::ResourceManager::getTexture("../Assets/Textures/Tiles/grass.png"), MrEngine::ColorRGBA8(255,255,255,245), true, false, 0.0f, glm::vec4(0.0f, 0.0f, 1.0f, 1.0f));
 
@@ -150,35 +155,32 @@ void GameplayScreen::update(float deltaTime)
     else if (m_currentScreenState == MrEngine::ScreenState::RUNNING)
     {
         m_player.update(m_game->inputManager, deltaTime);
+        
+        for (auto& box : m_boxes)
+        {
+            //move box left
+            box.getBody()->ApplyForceToCenter(b2Vec2(-10.0f, 0.0f), true);
+            
+            //delete boxes which have passed the left side of the screen
+            if (box.getPosition().x < m_camera.getPosition().x - m_window->getScreenWidth() / 2 / m_scale + 1)
+            {
+                //set new box back to the initial position
+                Box newBox;
+                newBox.init(m_world.get(), glm::vec2(m_window->getScreenWidth() / 2 / m_scale, 0.0f), box.getDimensions(), box.getTexture(), box.getColor(), box.getFixedRotation(), box.getIsDynamic());
+                m_boxes.push_back(newBox);
+                
+                //erase the box
+                box.destroy(m_world.get());
+                m_boxes.erase(m_boxes.begin());
+                m_playerScore++;
+            }
+            
+            if (m_player.isTouchedRight()) m_playerScore = 0;
+        }
+        
         //update physics using time step!
         m_world->Step(deltaTime, 6, 2);
     }
-
-    for (auto& box : m_boxes)
-    {
-        //move box left
-        box.getBody()->ApplyForceToCenter(b2Vec2(-10.0f, 0.0f), true);
-        
-        //delete boxes which have passed the left side of the screen
-        if (box.getPosition().x < m_camera.getPosition().x - m_window->getScreenWidth() / 2 / m_scale)
-        {
-            //set new box back to the initial position
-            Box newBox;
-            newBox.init(m_world.get(), glm::vec2(m_window->getScreenWidth() / 2 / m_scale, 0.0f), box.getDimensions(), box.getTexture(), box.getColor(), box.getFixedRotation(), box.getIsDynamic());
-            m_boxes.push_back(newBox);
-            
-            //erase the box
-            box.destroy(m_world.get());
-            m_boxes.erase(m_boxes.begin());
-            m_playerScore++;
-        }
-        
-        if (m_player.isTouchedRight())
-        {
-            m_playerScore = 0;
-        }
-    }
-
     m_camera.update();
 }
 
@@ -275,7 +277,6 @@ void GameplayScreen::draw(float deltaTime)
 
     m_spriteBatch.begin();
 
-//    playerLight.draw(m_spriteBatch);
     mouseLight.draw(m_spriteBatch);
 
     m_spriteBatch.end();
@@ -362,17 +363,11 @@ void GameplayScreen::checkInput()
                 if (m_game->inputManager.isKeyPressed(SDLK_v)) m_pMenu.displayed ^= 1;
                 break;
             case SDL_MOUSEWHEEL:
-//                m_camera.offsetScale(m_camera.getScale() * event.wheel.y * 0.1f);
                 break;
             case SDL_QUIT:
                 m_currentScreenState = MrEngine::ScreenState::EXIT_APPLICATION;
                 break;
             case SDL_MOUSEMOTION:
-//                if (m_game->inputManager.isKeyDown(SDL_BUTTON_RIGHT))
-//                {
-//                    //set offset and USE ASPECT RATIO
-//                    m_camera.offsetPosition(glm::vec2(-event.motion.xrel / 3, event.motion.yrel * m_camera.getDimRatio() / 8));
-//                }
                 break;
         }
     }

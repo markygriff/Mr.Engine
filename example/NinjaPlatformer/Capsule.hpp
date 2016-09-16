@@ -1,11 +1,3 @@
-//
-//  Capsule.hpp
-//  NinjaPlatformer
-//
-//  Created by Mark Griffith on 2016-08-09.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #ifndef Capsule_hpp
 #define Capsule_hpp
 

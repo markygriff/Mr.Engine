@@ -26,7 +26,7 @@ TODO: (functionality I plan on working on to further my knowledge of engine desi
   - Better spritesheet handling system to handle uneven spritesheets
   - Continue learning about game dev:)
 
-A sample game (NinjaPlatformer) is provided which uses Mr.Engine to create a mini game and a level editor
+A sample game (example) is provided which uses Mr.Engine to create a mini game and a level editor
   - Note: the level editor is unfinished, but has the ability to save a level and load it. 
   - todo: save and load game data using binary rather than text format. 
 

@@ -1,11 +1,3 @@
-//
-//  PauseMenu.hpp
-//  NinjaPlatformer
-//
-//  Created by Mark Griffith on 2016-08-20.
-//  Copyright © 2016 Mark Griffith. All rights reserved.
-//
-
 #ifndef PauseMenu_hpp
 #define PauseMenu_hpp
 
